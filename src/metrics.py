@@ -43,8 +43,8 @@ def solution_metrics(environment, objective, constraints, feasibility, optimizer
     return {
         "feasible": feasible,
         "message": message,
-        "objective": float(objective.combined_objective(z)),
-        "penalized_objective": float(optimizer.deriv.penalized_objective(z, rho=optimizer.rho)),
+        "objective": float(objective.combined_objective(z, optimizer.w_time, optimizer.w_energy, optimizer.w_smooth)),
+        "penalized_objective": float(optimizer.deriv.penalized_objective(z, optimizer.w_time, optimizer.w_energy, optimizer.rho, optimizer.w_smooth)),
         "distance_m": float(objective.total_distance(z)),
         "time_s": float(objective.time_cost(z)),
         "time_limit_s": float(environment.max_time_s),

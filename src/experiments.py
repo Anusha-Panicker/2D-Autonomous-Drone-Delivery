@@ -15,6 +15,7 @@ from gradient_descent import GradientDescentOptimizer
 from heavy_ball import HeavyBallOptimizer
 from metrics import solution_metrics
 from objective import Objective
+from objective import DELIVERY_MODES
 from visualization import Visualizer
 
 ROOT = Path(__file__).parent.parent
@@ -47,16 +48,21 @@ def build_problem(scenario, count):
     return environment, objective, constraints, derivatives, feasibility, initial_waypoints(environment, count)
 
 
-def run_method(environment, objective, constraints, derivatives, feasibility, z0, method, learning_rate=0.01, momentum=0.9, rho=100.0, max_iter=1000):
+def run_method(environment, objective, constraints, derivatives, feasibility, z0, method, learning_rate=0.01, momentum=0.9, rho=100.0, max_iter=1000, mode="balanced"):
+    alpha, beta = objective.mode_weights(mode)
     if method == "Gradient Descent":
         optimizer = GradientDescentOptimizer(environment, objective, constraints, derivatives, learning_rate=learning_rate, rho=rho, max_iter=max_iter)
     else:
         optimizer = HeavyBallOptimizer(environment, objective, constraints, derivatives, learning_rate=learning_rate, momentum=momentum, rho=rho, max_iter=max_iter)
-    solution = optimizer.fit(z0)
-    return solution, optimizer, solution_metrics(environment, objective, constraints, feasibility, optimizer, solution)
+    solution = optimizer.fit(z0, w_time=alpha, w_energy=beta)
+    metrics = solution_metrics(environment, objective, constraints, feasibility, optimizer, solution)
+    metrics["delivery_mode"] = mode
+    metrics["time_weight_alpha"] = alpha
+    metrics["energy_weight_beta"] = beta
+    return solution, optimizer, metrics
 
 
-def run_pair(scenario, count, z0=None, max_iter=1000, rho=100.0):
+def run_pair(scenario, count, z0=None, max_iter=1000, rho=100.0, mode="balanced"):
     environment, objective, constraints, derivatives, feasibility, default_z0 = build_problem(scenario, count)
     z0 = default_z0 if z0 is None else z0
     initial = {
@@ -67,7 +73,7 @@ def run_pair(scenario, count, z0=None, max_iter=1000, rho=100.0):
     results = {}
     solutions = {}
     for method in ("Gradient Descent", "Heavy-Ball"):
-        solution, optimizer, metrics = run_method(environment, objective, constraints, derivatives, feasibility, z0, method, rho=rho, max_iter=max_iter)
+        solution, optimizer, metrics = run_method(environment, objective, constraints, derivatives, feasibility, z0, method, rho=rho, max_iter=max_iter, mode=mode)
         results[method] = metrics
         solutions[method] = (solution, optimizer)
     return environment, objective, constraints, derivatives, feasibility, initial, results, solutions
@@ -113,6 +119,12 @@ def main():
     basic["simple_obstacle_case"] = {"initial": simple_initial, "methods": simple_results}
     basic["multiple_obstacle_case"] = results
     save_json(RESULTS / "metrics" / "scenario_0.json", basic)
+
+    mode_comparison = {}
+    for mode in DELIVERY_MODES:
+        _, _, _, _, _, _, mode_results, _ = run_pair(scenario, 5, max_iter=1000, mode=mode)
+        mode_comparison[mode] = mode_results
+    save_json(RESULTS / "metrics" / "delivery_modes.json", mode_comparison)
 
     experiment_rows = []
     for learning_rate in (0.005, 0.01, 0.02):

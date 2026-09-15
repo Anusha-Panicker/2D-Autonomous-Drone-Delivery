@@ -28,6 +28,9 @@ class GradientDescentOptimizer:
 
     def fit(self, z0, w_time=1.0, w_energy=1.0, w_smooth=0.0):
         z = np.array(z0, dtype=float)
+        self.w_time = w_time
+        self.w_energy = w_energy
+        self.w_smooth = w_smooth
         self.history = []
         self.grad_norm_history = []
         self.feasibility_history = []

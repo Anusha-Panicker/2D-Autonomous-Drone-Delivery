@@ -41,3 +41,17 @@ python src/experiments.py
 The project uses a **Penalty Method** to transform a constrained optimization problem into an unconstrained one:
 $$F_{penalty}(z) = F_{objective}(z) + \rho \sum \max(0, g_j(z))^2$$
 Where $g_j(z)$ represents the constraints (NFZ, Battery, Workspace).
+
+## Delivery priority modes
+
+The optimizer supports three delivery modes. Time and energy are normalized by reference scales before weights are applied, so `alpha` and `beta` represent priorities rather than raw units:
+
+| Mode | Weights | Priority |
+|---|---|---|
+| Normal / Battery Saving | `alpha = 0.2`, `beta = 0.8` | Energy |
+| Express / Urgent Delivery | `alpha = 0.9`, `beta = 0.1` | Time |
+| Balanced | `alpha = 0.5`, `beta = 0.5` | Equal priority |
+
+Results are saved in `results/metrics/delivery_modes.json`.
+
+Because the current model uses fixed speed and energy proportional to distance, all three modes can produce similar routes. A richer energy model or speed as a decision variable is required for visibly different speed-energy trade-offs.

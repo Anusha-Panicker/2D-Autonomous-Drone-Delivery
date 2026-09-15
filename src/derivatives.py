@@ -18,8 +18,11 @@ class Derivatives:
         grad = np.zeros_like(z)
 
         # 1. Gradient of Distance-based objective (T and E)
-        # Since T and E are both proportional to distance: Cost = (w_t/v_max + w_e*power/v_max) * Dist
-        coeff = (w_time / self.obj.v_max) + (w_energy * (self.obj.c0 + self.obj.c1*self.obj.v_max + self.obj.c2*self.obj.v_max**2) / self.obj.v_max)
+        # Time and energy are normalized before applying delivery-mode weights.
+        power = self.obj.c0 + self.obj.c1 * self.obj.v_max + self.obj.c2 * self.obj.v_max**2
+        coeff = (w_time / self.obj.time_reference_s / self.obj.v_max) + (
+            w_energy / self.obj.energy_reference_Wh * power / self.obj.v_max
+        )
 
         # Distance Gradient
         waypoints = z.reshape(-1, 2)
