@@ -1,0 +1,3470 @@
+{
+  "normal": {
+    "Gradient Descent": {
+      "feasible": false,
+      "message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]",
+      "objective": 0.3070248610672295,
+      "penalized_objective": 0.30704675943627296,
+      "distance_m": 10.077482114680913,
+      "time_s": 2.1782038629074796,
+      "time_limit_s": 3.0,
+      "energy_Wh": 12.831238976461524,
+      "battery_limit_Wh": 63.43804833899775,
+      "minimum_buffered_clearance_m": -0.012311626079205551,
+      "iterations": 26,
+      "runtime_s": 0.028890371322631836,
+      "final_gradient_norm": 0.18404716711136848,
+      "condition_number": null,
+      "constraint_report": {
+        "maximum_violation": 0.00046795693224366275,
+        "active_count": 1,
+        "values": [
+          {
+            "name": "battery",
+            "value": -50.606809362536225,
+            "slack": 50.606809362536225,
+            "status": "inactive"
+          },
+          {
+            "name": "time",
+            "value": -0.8217961370925204,
+            "slack": 0.8217961370925204,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_1",
+            "value": -2.101298912278848,
+            "slack": 2.101298912278848,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_2",
+            "value": -41.353471902989796,
+            "slack": 41.353471902989796,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_1",
+            "value": -1.210422265387407,
+            "slack": 1.210422265387407,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_2",
+            "value": -30.952940137853755,
+            "slack": 30.952940137853755,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_1",
+            "value": -2.7160710020715717,
+            "slack": 2.7160710020715717,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_2",
+            "value": -7.098639724365647,
+            "slack": 7.098639724365647,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_1",
+            "value": -5.41888237739244,
+            "slack": 5.41888237739244,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_2",
+            "value": -1.901380246733499,
+            "slack": 1.901380246733499,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_1",
+            "value": -16.31369854042201,
+            "slack": 16.31369854042201,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_2",
+            "value": -0.28569308756336254,
+            "slack": 0.28569308756336254,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_1",
+            "value": -6.862298825097429,
+            "slack": 6.862298825097429,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_2",
+            "value": -54.11905594394884,
+            "slack": 54.11905594394884,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_1",
+            "value": -5.765310075467927,
+            "slack": 5.765310075467927,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_2",
+            "value": -51.421150368691244,
+            "slack": 51.421150368691244,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_1",
+            "value": -4.74071570937132,
+            "slack": 4.74071570937132,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_2",
+            "value": -48.795639176966546,
+            "slack": 48.795639176966546,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_1",
+            "value": -3.788515726807603,
+            "slack": 3.788515726807603,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_2",
+            "value": -46.24252236877473,
+            "slack": 46.24252236877473,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_1",
+            "value": -2.9087101277767804,
+            "slack": 2.9087101277767804,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_2",
+            "value": -43.761799944115836,
+            "slack": 43.761799944115836,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_1",
+            "value": -1.322000608746222,
+            "slack": 1.322000608746222,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_2",
+            "value": -38.98923107974974,
+            "slack": 38.98923107974974,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_1",
+            "value": -0.7950298501672166,
+            "slack": 0.7950298501672166,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_2",
+            "value": -36.877317801463306,
+            "slack": 36.877317801463306,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_1",
+            "value": -0.5203866365418328,
+            "slack": 0.5203866365418328,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_2",
+            "value": -35.0177320681305,
+            "slack": 35.0177320681305,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_1",
+            "value": -0.49807096787006966,
+            "slack": 0.49807096787006966,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_2",
+            "value": -33.41047387975128,
+            "slack": 33.41047387975128,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_1",
+            "value": -0.7280828441519285,
+            "slack": 0.7280828441519285,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_2",
+            "value": -32.05554323632572,
+            "slack": 32.05554323632572,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_1",
+            "value": -0.39088051240911836,
+            "slack": 0.39088051240911836,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_2",
+            "value": -25.906740193180084,
+            "slack": 25.906740193180084,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_1",
+            "value": 0.00046795693224366275,
+            "slack": -0.00046795693224366275,
+            "status": "active"
+          },
+          {
+            "name": "segment_sample_12_obstacle_2",
+            "value": -21.288733532143343,
+            "slack": 21.288733532143343,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_1",
+            "value": -0.036376857363320525,
+            "slack": 0.036376857363320525,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_2",
+            "value": -17.098920154743535,
+            "slack": 17.098920154743535,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_1",
+            "value": -0.50141495529581,
+            "slack": 0.50141495529581,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_2",
+            "value": -13.337300060980645,
+            "slack": 13.337300060980645,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_1",
+            "value": -1.3946463368652258,
+            "slack": 1.3946463368652258,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_2",
+            "value": -10.003873250854685,
+            "slack": 10.003873250854685,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_1",
+            "value": -3.0364812082659807,
+            "slack": 3.0364812082659807,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_2",
+            "value": -6.102371455067885,
+            "slack": 6.102371455067885,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_1",
+            "value": -3.408914757004018,
+            "slack": 3.408914757004018,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_2",
+            "value": -5.158126528313753,
+            "slack": 5.158126528313753,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_1",
+            "value": -3.8333716482856826,
+            "slack": 3.8333716482856826,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_2",
+            "value": -4.265904944103247,
+            "slack": 4.265904944103247,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_1",
+            "value": -4.309851882110971,
+            "slack": 4.309851882110971,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_2",
+            "value": -3.425706702436371,
+            "slack": 3.425706702436371,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_1",
+            "value": -4.838355458479891,
+            "slack": 4.838355458479891,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_2",
+            "value": -2.637531803313121,
+            "slack": 2.637531803313121,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_1",
+            "value": -6.903617974447264,
+            "slack": 6.903617974447264,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_2",
+            "value": -1.3010319567550361,
+            "slack": 1.3010319567550361,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_1",
+            "value": -8.520780410215462,
+            "slack": 8.520780410215462,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_2",
+            "value": -0.8331105054899486,
+            "slack": 0.8331105054899486,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_1",
+            "value": -10.270369684697037,
+            "slack": 10.270369684697037,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_2",
+            "value": -0.49761589293823816,
+            "slack": 0.49761589293823816,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_1",
+            "value": -12.15238579789198,
+            "slack": 12.15238579789198,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_2",
+            "value": -0.2945481190999044,
+            "slack": 0.2945481190999044,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_1",
+            "value": -14.16682874980031,
+            "slack": 14.16682874980031,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_2",
+            "value": -0.22390718397494513,
+            "slack": 0.22390718397494513,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_1",
+            "value": -18.44276056807934,
+            "slack": 18.44276056807934,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_2",
+            "value": -0.10862013015441896,
+            "slack": 0.10862013015441896,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_1",
+            "value": -20.699661077046684,
+            "slack": 20.699661077046684,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_2",
+            "value": -0.059385654055471804,
+            "slack": 0.059385654055471804,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_1",
+            "value": -23.084400067324005,
+            "slack": 23.084400067324005,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_2",
+            "value": -0.13798965926651974,
+            "slack": 0.13798965926651974,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_1",
+            "value": -25.596977538911318,
+            "slack": 25.596977538911318,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_2",
+            "value": -0.34443214578756276,
+            "slack": 0.34443214578756276,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_1",
+            "value": -28.23739349180865,
+            "slack": 28.23739349180865,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_2",
+            "value": -0.6787131136186062,
+            "slack": 0.6787131136186062,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_1",
+            "value": -1.8959874369987597,
+            "slack": 1.8959874369987597,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_1",
+            "value": -8.104012563001241,
+            "slack": 8.104012563001241,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_1",
+            "value": -1.3657379243103305,
+            "slack": 1.3657379243103305,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_1",
+            "value": -8.63426207568967,
+            "slack": 8.63426207568967,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_2",
+            "value": -3.5360284223081706,
+            "slack": 3.5360284223081706,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_2",
+            "value": -6.463971577691829,
+            "slack": 6.463971577691829,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_2",
+            "value": -0.004796567869681135,
+            "slack": 0.004796567869681135,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_2",
+            "value": -9.99520343213032,
+            "slack": 9.99520343213032,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_3",
+            "value": -6.069096624145693,
+            "slack": 6.069096624145693,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_3",
+            "value": -3.9309033758543066,
+            "slack": 3.9309033758543066,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_3",
+            "value": -1.1410379992143989,
+            "slack": 1.1410379992143989,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_3",
+            "value": -8.858962000785601,
+            "slack": 8.858962000785601,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_4",
+            "value": -6.717450555596382,
+            "slack": 6.717450555596382,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_4",
+            "value": -3.2825494444036183,
+            "slack": 3.2825494444036183,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_4",
+            "value": -1.8594093136178462,
+            "slack": 1.8594093136178462,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_4",
+            "value": -8.140590686382154,
+            "slack": 8.140590686382154,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_5",
+            "value": -8.251352493161978,
+            "slack": 8.251352493161978,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_5",
+            "value": -1.7486475068380223,
+            "slack": 1.7486475068380223,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_5",
+            "value": -1.6838304345541113,
+            "slack": 1.6838304345541113,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_5",
+            "value": -8.31616956544589,
+            "slack": 8.31616956544589,
+            "status": "inactive"
+          }
+        ]
+      },
+      "delivery_mode": "normal",
+      "time_weight_alpha": 0.2,
+      "energy_weight_beta": 0.8
+    },
+    "Heavy-Ball": {
+      "feasible": true,
+      "message": "Trajectory is fully feasible",
+      "objective": 0.29339381734975045,
+      "penalized_objective": 0.29339381734975045,
+      "distance_m": 9.630070140322102,
+      "time_s": 2.081497713517277,
+      "time_limit_s": 3.0,
+      "energy_Wh": 12.26156791194382,
+      "battery_limit_Wh": 63.43804833899775,
+      "minimum_buffered_clearance_m": 0.053216514939220305,
+      "iterations": 247,
+      "runtime_s": 0.4145193099975586,
+      "final_gradient_norm": 0.0262364202294461,
+      "condition_number": null,
+      "constraint_report": {
+        "maximum_violation": 0.0,
+        "active_count": 0,
+        "values": [
+          {
+            "name": "battery",
+            "value": -51.17648042705393,
+            "slack": 51.17648042705393,
+            "status": "inactive"
+          },
+          {
+            "name": "time",
+            "value": -0.918502286482723,
+            "slack": 0.918502286482723,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_1",
+            "value": -3.757512661646717,
+            "slack": 3.757512661646717,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_2",
+            "value": -46.530999716885546,
+            "slack": 46.530999716885546,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_1",
+            "value": -0.4300881845483455,
+            "slack": 0.4300881845483455,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_2",
+            "value": -26.35201045716457,
+            "slack": 26.35201045716457,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_1",
+            "value": -4.8032198377161945,
+            "slack": 4.8032198377161945,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_2",
+            "value": -9.79486432833795,
+            "slack": 9.79486432833795,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_1",
+            "value": -8.132641312539302,
+            "slack": 8.132641312539302,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_2",
+            "value": -3.177217447583665,
+            "slack": 3.177217447583665,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_1",
+            "value": -16.844375122510737,
+            "slack": 16.844375122510737,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_2",
+            "value": -0.5385530099231901,
+            "slack": 0.5385530099231901,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_1",
+            "value": -7.185247588298652,
+            "slack": 7.185247588298652,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_2",
+            "value": -55.02889038457137,
+            "slack": 55.02889038457137,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_1",
+            "value": -6.392442346547743,
+            "slack": 6.392442346547743,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_2",
+            "value": -53.22205399461369,
+            "slack": 53.22205399461369,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_1",
+            "value": -5.653266233007096,
+            "slack": 5.653266233007096,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_2",
+            "value": -51.468846732866254,
+            "slack": 51.468846732866254,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_1",
+            "value": -4.967719247676707,
+            "slack": 4.967719247676707,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_2",
+            "value": -49.76926859932908,
+            "slack": 49.76926859932908,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_1",
+            "value": -4.3358013905565835,
+            "slack": 4.3358013905565835,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_2",
+            "value": -48.12331959400218,
+            "slack": 48.12331959400218,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_1",
+            "value": -2.395333663501561,
+            "slack": 2.395333663501561,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_2",
+            "value": -42.36022658830328,
+            "slack": 42.36022658830328,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_1",
+            "value": -1.3561979661412424,
+            "slack": 1.3561979661412424,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_2",
+            "value": -38.51249676050587,
+            "slack": 38.51249676050587,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_1",
+            "value": -0.6401055695657618,
+            "slack": 0.6401055695657618,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_2",
+            "value": -34.98781023349329,
+            "slack": 34.98781023349329,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_1",
+            "value": -0.2470564737751193,
+            "slack": 0.2470564737751193,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_2",
+            "value": -31.786167007265544,
+            "slack": 31.786167007265544,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_1",
+            "value": -0.17705067876931313,
+            "slack": 0.17705067876931313,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_2",
+            "value": -28.90756708182263,
+            "slack": 28.90756708182263,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_1",
+            "value": -0.390565683213568,
+            "slack": 0.390565683213568,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_2",
+            "value": -22.824108325497374,
+            "slack": 22.824108325497374,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_1",
+            "value": -0.6583942926238917,
+            "slack": 0.6583942926238917,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_2",
+            "value": -19.60355730457529,
+            "slack": 19.60355730457529,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_1",
+            "value": -1.2335740127793153,
+            "slack": 1.2335740127793153,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_2",
+            "value": -16.6903573943983,
+            "slack": 16.6903573943983,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_1",
+            "value": -2.1161048436798433,
+            "slack": 2.1161048436798433,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_2",
+            "value": -14.084508594966415,
+            "slack": 14.084508594966415,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_1",
+            "value": -3.305986785325466,
+            "slack": 3.305986785325466,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_2",
+            "value": -11.786010906279637,
+            "slack": 11.786010906279637,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_1",
+            "value": -5.172184313932286,
+            "slack": 5.172184313932286,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_2",
+            "value": -8.505984078624477,
+            "slack": 8.505984078624477,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_1",
+            "value": -5.615524431316815,
+            "slack": 5.615524431316815,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_2",
+            "value": -7.291479470079439,
+            "slack": 7.291479470079439,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_1",
+            "value": -6.13324018986978,
+            "slack": 6.13324018986978,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_2",
+            "value": -6.15135050270284,
+            "slack": 6.15135050270284,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_1",
+            "value": -6.725331589591183,
+            "slack": 6.725331589591183,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_2",
+            "value": -5.085597176494677,
+            "slack": 5.085597176494677,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_1",
+            "value": -7.391798630481026,
+            "slack": 7.391798630481026,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_2",
+            "value": -4.094219491454952,
+            "slack": 4.094219491454952,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_1",
+            "value": -9.369502670958788,
+            "slack": 9.369502670958788,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_2",
+            "value": -2.522345764731165,
+            "slack": 2.522345764731165,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_1",
+            "value": -10.692401740008574,
+            "slack": 10.692401740008574,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_2",
+            "value": -1.9535117925089658,
+            "slack": 1.9535117925089658,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_1",
+            "value": -12.10133851968866,
+            "slack": 12.10133851968866,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_2",
+            "value": -1.4707155309170679,
+            "slack": 1.4707155309170679,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_1",
+            "value": -13.59631300999905,
+            "slack": 13.59631300999905,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_2",
+            "value": -1.073956979955474,
+            "slack": 1.073956979955474,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_1",
+            "value": -15.177325210939745,
+            "slack": 15.177325210939745,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_2",
+            "value": -0.7632361396241807,
+            "slack": 0.7632361396241807,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_1",
+            "value": -18.899303741357222,
+            "slack": 18.899303741357222,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_2",
+            "value": -0.3336494203248739,
+            "slack": 0.3336494203248739,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_1",
+            "value": -21.076345766232112,
+            "slack": 21.076345766232112,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_2",
+            "value": -0.2508592367549807,
+            "slack": 0.2508592367549807,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_1",
+            "value": -23.375501197135442,
+            "slack": 23.375501197135442,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_2",
+            "value": -0.2901824592135114,
+            "slack": 0.2901824592135114,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_1",
+            "value": -25.796770034067197,
+            "slack": 25.796770034067197,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_2",
+            "value": -0.45161908770046644,
+            "slack": 0.45161908770046644,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_1",
+            "value": -28.340152277027357,
+            "slack": 28.340152277027357,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_2",
+            "value": -0.7351691222158392,
+            "slack": 0.7351691222158392,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_1",
+            "value": -1.6361181047444018,
+            "slack": 1.6361181047444018,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_1",
+            "value": -8.363881895255599,
+            "slack": 8.363881895255599,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_1",
+            "value": -0.9701313749907994,
+            "slack": 0.9701313749907994,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_1",
+            "value": -9.0298686250092,
+            "slack": 9.0298686250092,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_2",
+            "value": -3.9151892148245264,
+            "slack": 3.9151892148245264,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_2",
+            "value": -6.084810785175474,
+            "slack": 6.084810785175474,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_2",
+            "value": -0.18234061005049718,
+            "slack": 0.18234061005049718,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_2",
+            "value": -9.817659389949503,
+            "slack": 9.817659389949503,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_3",
+            "value": -6.2459618591437795,
+            "slack": 6.2459618591437795,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_3",
+            "value": -3.7540381408562205,
+            "slack": 3.7540381408562205,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_3",
+            "value": -0.4982818607678658,
+            "slack": 0.4982818607678658,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_3",
+            "value": -9.501718139232134,
+            "slack": 9.501718139232134,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_4",
+            "value": -7.117897192455567,
+            "slack": 7.117897192455567,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_4",
+            "value": -2.882102807544433,
+            "slack": 2.882102807544433,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_4",
+            "value": -1.2588673691456804,
+            "slack": 1.2588673691456804,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_4",
+            "value": -8.74113263085432,
+            "slack": 8.74113263085432,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_5",
+            "value": -8.309677342045433,
+            "slack": 8.309677342045433,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_5",
+            "value": -1.6903226579545674,
+            "slack": 1.6903226579545674,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_5",
+            "value": -1.6171115126972495,
+            "slack": 1.6171115126972495,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_5",
+            "value": -8.38288848730275,
+            "slack": 8.38288848730275,
+            "status": "inactive"
+          }
+        ]
+      },
+      "delivery_mode": "normal",
+      "time_weight_alpha": 0.2,
+      "energy_weight_beta": 0.8
+    }
+  },
+  "express": {
+    "Gradient Descent": {
+      "feasible": false,
+      "message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]",
+      "objective": 0.6687194544669214,
+      "penalized_objective": 0.6688353664677491,
+      "distance_m": 10.003165659797123,
+      "time_s": 2.162140684897008,
+      "time_limit_s": 3.0,
+      "energy_Wh": 12.736614924377305,
+      "battery_limit_Wh": 63.43804833899775,
+      "minimum_buffered_clearance_m": -0.010870121858681525,
+      "iterations": 90,
+      "runtime_s": 0.16844511032104492,
+      "final_gradient_norm": 0.42655787390661404,
+      "condition_number": null,
+      "constraint_report": {
+        "maximum_violation": 0.001076624358017586,
+        "active_count": 0,
+        "values": [
+          {
+            "name": "battery",
+            "value": -50.701433414620446,
+            "slack": 50.701433414620446,
+            "status": "inactive"
+          },
+          {
+            "name": "time",
+            "value": -0.837859315102992,
+            "slack": 0.837859315102992,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_1",
+            "value": -2.173012755793456,
+            "slack": 2.173012755793456,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_2",
+            "value": -41.61110399102063,
+            "slack": 41.61110399102063,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_1",
+            "value": -1.1648336251735252,
+            "slack": 1.1648336251735252,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_2",
+            "value": -30.71372518066632,
+            "slack": 30.71372518066632,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_1",
+            "value": -2.7037057729154004,
+            "slack": 2.7037057729154004,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_2",
+            "value": -7.143678720386294,
+            "slack": 7.143678720386294,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_1",
+            "value": -5.502677256807003,
+            "slack": 5.502677256807003,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_2",
+            "value": -1.988219433207159,
+            "slack": 1.988219433207159,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_1",
+            "value": -16.293614323765095,
+            "slack": 16.293614323765095,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_2",
+            "value": -0.22005680888338341,
+            "slack": 0.22005680888338341,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_1",
+            "value": -6.877244332171576,
+            "slack": 6.877244332171576,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_2",
+            "value": -54.16498782510902,
+            "slack": 54.16498782510902,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_1",
+            "value": -5.7940038096875375,
+            "slack": 5.7940038096875375,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_2",
+            "value": -51.511816851082926,
+            "slack": 51.511816851082926,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_1",
+            "value": -4.781960390807706,
+            "slack": 4.781960390807706,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_2",
+            "value": -48.929842980661036,
+            "slack": 48.929842980661036,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_1",
+            "value": -3.841114075532082,
+            "slack": 3.841114075532082,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_2",
+            "value": -46.419066213843365,
+            "slack": 46.419066213843365,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_1",
+            "value": -2.9714648638606667,
+            "slack": 2.9714648638606667,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_2",
+            "value": -43.979486550629886,
+            "slack": 43.979486550629886,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_1",
+            "value": -1.3738951693053094,
+            "slack": 1.3738951693053094,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_2",
+            "value": -39.16378645791008,
+            "slack": 39.16378645791008,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_1",
+            "value": -0.8272126753710936,
+            "slack": 0.8272126753710936,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_2",
+            "value": -36.968904017353466,
+            "slack": 36.968904017353466,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_1",
+            "value": -0.5329652739908064,
+            "slack": 0.5329652739908064,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_2",
+            "value": -35.02645666935079,
+            "slack": 35.02645666935079,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_1",
+            "value": -0.4911529651644493,
+            "slack": 0.4911529651644493,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_2",
+            "value": -33.33644441390203,
+            "slack": 33.33644441390203,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_1",
+            "value": -0.7017757488920222,
+            "slack": 0.7017757488920222,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_2",
+            "value": -31.89886725100722,
+            "slack": 31.89886725100722,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_1",
+            "value": -0.37202004639373243,
+            "slack": 0.37202004639373243,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_2",
+            "value": -25.736091833882885,
+            "slack": 25.736091833882885,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_1",
+            "value": 0.001076624358017586,
+            "slack": -0.001076624358017586,
+            "status": "violated"
+          },
+          {
+            "name": "segment_sample_12_obstacle_2",
+            "value": -21.178175395127486,
+            "slack": 21.178175395127486,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_1",
+            "value": -0.045543612918274246,
+            "slack": 0.045543612918274246,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_2",
+            "value": -17.039975864400123,
+            "slack": 17.039975864400123,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_1",
+            "value": -0.5118807582226079,
+            "slack": 0.5118807582226079,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_2",
+            "value": -13.321493241700807,
+            "slack": 13.321493241700807,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_1",
+            "value": -1.3979348115549834,
+            "slack": 1.3979348115549834,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_2",
+            "value": -10.02272752702953,
+            "slack": 10.02272752702953,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_1",
+            "value": -3.043290715289271,
+            "slack": 3.043290715289271,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_2",
+            "value": -6.157525200915041,
+            "slack": 6.157525200915041,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_1",
+            "value": -3.433639779639698,
+            "slack": 3.433639779639698,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_2",
+            "value": -5.222135803420349,
+            "slack": 5.222135803420349,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_1",
+            "value": -3.874752965966686,
+            "slack": 3.874752965966686,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_2",
+            "value": -4.337510527902211,
+            "slack": 4.337510527902211,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_1",
+            "value": -4.366630274270235,
+            "slack": 4.366630274270235,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_2",
+            "value": -3.5036493743606343,
+            "slack": 3.5036493743606343,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_1",
+            "value": -4.909271704550337,
+            "slack": 4.909271704550337,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_2",
+            "value": -2.720552342795618,
+            "slack": 2.720552342795618,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_1",
+            "value": -6.979623176717664,
+            "slack": 6.979623176717664,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_2",
+            "value": -1.371982071237504,
+            "slack": 1.371982071237504,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_1",
+            "value": -8.585186533127928,
+            "slack": 8.585186533127928,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_2",
+            "value": -0.8843621457674611,
+            "slack": 0.8843621457674611,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_1",
+            "value": -10.319367326037803,
+            "slack": 10.319367326037803,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_2",
+            "value": -0.5253596567970273,
+            "slack": 0.5253596567970273,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_1",
+            "value": -12.182165555447291,
+            "slack": 12.182165555447291,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_2",
+            "value": -0.29497460432620226,
+            "slack": 0.29497460432620226,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_1",
+            "value": -14.173581221356386,
+            "slack": 14.173581221356386,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_2",
+            "value": -0.19320698835498806,
+            "slack": 0.19320698835498806,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_1",
+            "value": -18.42750700026302,
+            "slack": 18.42750700026302,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_2",
+            "value": -0.05540651065221125,
+            "slack": 0.05540651065221125,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_1",
+            "value": -20.688644846311846,
+            "slack": 20.688644846311846,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_2",
+            "value": -0.018001381971926467,
+            "slack": 0.018001381971926467,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_1",
+            "value": -23.077027861911542,
+            "slack": 23.077027861911542,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_2",
+            "value": -0.10784142284252551,
+            "slack": 0.10784142284252551,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_1",
+            "value": -25.59265604706212,
+            "slack": 25.59265604706212,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_2",
+            "value": -0.32492663326401017,
+            "slack": 0.32492663326401017,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_1",
+            "value": -28.235529401763607,
+            "slack": 28.235529401763607,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_2",
+            "value": -0.6692570132363853,
+            "slack": 0.6692570132363853,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_1",
+            "value": -1.8851592473971777,
+            "slack": 1.8851592473971777,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_1",
+            "value": -8.114840752602822,
+            "slack": 8.114840752602822,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_1",
+            "value": -1.337361648827594,
+            "slack": 1.337361648827594,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_1",
+            "value": -8.662638351172406,
+            "slack": 8.662638351172406,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_2",
+            "value": -3.555520511424971,
+            "slack": 3.555520511424971,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_2",
+            "value": -6.444479488575029,
+            "slack": 6.444479488575029,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_2",
+            "value": -0.013078856669434251,
+            "slack": 0.013078856669434251,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_2",
+            "value": -9.986921143330566,
+            "slack": 9.986921143330566,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_3",
+            "value": -6.064438987957327,
+            "slack": 6.064438987957327,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_3",
+            "value": -3.9355610120426734,
+            "slack": 3.9355610120426734,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_3",
+            "value": -1.1356795971908884,
+            "slack": 1.1356795971908884,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_3",
+            "value": -8.864320402809112,
+            "slack": 8.864320402809112,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_4",
+            "value": -6.732585180253733,
+            "slack": 6.732585180253733,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_4",
+            "value": -3.267414819746267,
+            "slack": 3.267414819746267,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_4",
+            "value": -1.819298541704478,
+            "slack": 1.819298541704478,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_4",
+            "value": -8.180701458295522,
+            "slack": 8.180701458295522,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_5",
+            "value": -8.249617977499977,
+            "slack": 8.249617977499977,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_5",
+            "value": -1.7503820225000233,
+            "slack": 1.7503820225000233,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_5",
+            "value": -1.702143306771441,
+            "slack": 1.702143306771441,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_5",
+            "value": -8.297856693228558,
+            "slack": 8.297856693228558,
+            "status": "inactive"
+          }
+        ]
+      },
+      "delivery_mode": "express",
+      "time_weight_alpha": 0.9,
+      "energy_weight_beta": 0.1
+    },
+    "Heavy-Ball": {
+      "feasible": true,
+      "message": "Trajectory is fully feasible",
+      "objective": 0.635434249085914,
+      "penalized_objective": 0.635434249085914,
+      "distance_m": 9.505262658437594,
+      "time_s": 2.054521119952844,
+      "time_limit_s": 3.0,
+      "energy_Wh": 12.102655734488547,
+      "battery_limit_Wh": 63.43804833899775,
+      "minimum_buffered_clearance_m": 0.034965088135229916,
+      "iterations": 250,
+      "runtime_s": 0.4820282459259033,
+      "final_gradient_norm": 0.0386793901438417,
+      "condition_number": null,
+      "constraint_report": {
+        "maximum_violation": 0.0,
+        "active_count": 0,
+        "values": [
+          {
+            "name": "battery",
+            "value": -51.33539260450921,
+            "slack": 51.33539260450921,
+            "status": "inactive"
+          },
+          {
+            "name": "time",
+            "value": -0.9454788800471561,
+            "slack": 0.9454788800471561,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_1",
+            "value": -3.727289394738845,
+            "slack": 3.727289394738845,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_2",
+            "value": -46.44447701801056,
+            "slack": 46.44447701801056,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_1",
+            "value": -0.3488142915187944,
+            "slack": 0.3488142915187944,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_2",
+            "value": -27.56577502504485,
+            "slack": 27.56577502504485,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_1",
+            "value": -3.8485973608028257,
+            "slack": 3.8485973608028257,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_2",
+            "value": -9.229136291592422,
+            "slack": 9.229136291592422,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_1",
+            "value": -8.79583033911359,
+            "slack": 8.79583033911359,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_2",
+            "value": -3.645211536228265,
+            "slack": 3.645211536228265,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_1",
+            "value": -16.946046137885826,
+            "slack": 16.946046137885826,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_2",
+            "value": -0.6074619387297258,
+            "slack": 0.6074619387297258,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_1",
+            "value": -7.1791531271400375,
+            "slack": 7.1791531271400375,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_2",
+            "value": -55.01341268475157,
+            "slack": 55.01341268475157,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_1",
+            "value": -6.380676324233437,
+            "slack": 6.380676324233437,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_2",
+            "value": -53.191521494976996,
+            "slack": 53.191521494976996,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_1",
+            "value": -5.636251549540018,
+            "slack": 5.636251549540018,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_2",
+            "value": -51.42368233341561,
+            "slack": 51.42368233341561,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_1",
+            "value": -4.945878803059778,
+            "slack": 4.945878803059778,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_2",
+            "value": -49.70989520006742,
+            "slack": 49.70989520006742,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_1",
+            "value": -4.309558084792722,
+            "slack": 4.309558084792722,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_2",
+            "value": -48.050160094932394,
+            "slack": 48.050160094932394,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_1",
+            "value": -2.4680152935732966,
+            "slack": 2.4680152935732966,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_2",
+            "value": -42.601831768554064,
+            "slack": 42.601831768554064,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_1",
+            "value": -1.487219159325965,
+            "slack": 1.487219159325965,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_2",
+            "value": -39.037664486015785,
+            "slack": 39.037664486015785,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_1",
+            "value": -0.7849009919968486,
+            "slack": 0.7849009919968486,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_2",
+            "value": -35.751975170395724,
+            "slack": 35.751975170395724,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_1",
+            "value": -0.36106079158594717,
+            "slack": 0.36106079158594717,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_2",
+            "value": -32.74476382169388,
+            "slack": 32.74476382169388,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_1",
+            "value": -0.21569855809326377,
+            "slack": 0.21569855809326377,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_2",
+            "value": -30.016030439910264,
+            "slack": 30.016030439910264,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_1",
+            "value": -0.11478789676085865,
+            "slack": 0.11478789676085865,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_2",
+            "value": -23.6923449964975,
+            "slack": 23.6923449964975,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_1",
+            "value": -0.20769093119169924,
+            "slack": 0.20769093119169924,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_2",
+            "value": -20.14584439713894,
+            "slack": 20.14584439713894,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_1",
+            "value": -0.6275233948113161,
+            "slack": 0.6275233948113161,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_2",
+            "value": -16.92627322696914,
+            "slack": 16.92627322696914,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_1",
+            "value": -1.374285287619708,
+            "slack": 1.374285287619708,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_2",
+            "value": -14.033631485988128,
+            "slack": 14.033631485988128,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_1",
+            "value": -2.4479766096168785,
+            "slack": 2.4479766096168785,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_2",
+            "value": -11.467919174195886,
+            "slack": 11.467919174195886,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_1",
+            "value": -4.48889459883891,
+            "slack": 4.48889459883891,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_2",
+            "value": -8.11424057401602,
+            "slack": 8.11424057401602,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_1",
+            "value": -5.202888473547944,
+            "slack": 5.202888473547944,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_2",
+            "value": -7.073041493112568,
+            "slack": 7.073041493112568,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_1",
+            "value": -5.99057898492993,
+            "slack": 5.99057898492993,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_2",
+            "value": -6.105539048882067,
+            "slack": 6.105539048882067,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_1",
+            "value": -6.851966132984864,
+            "slack": 6.851966132984864,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_2",
+            "value": -5.2117332413245165,
+            "slack": 5.2117332413245165,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_1",
+            "value": -7.787049917712751,
+            "slack": 7.787049917712751,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_2",
+            "value": -4.3916240704399145,
+            "slack": 4.3916240704399145,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_1",
+            "value": -9.946224833088241,
+            "slack": 9.946224833088241,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_2",
+            "value": -2.930945130824454,
+            "slack": 2.930945130824454,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_1",
+            "value": -11.179809249391177,
+            "slack": 11.179809249391177,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_2",
+            "value": -2.2998686477489327,
+            "slack": 2.2998686477489327,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_1",
+            "value": -12.496583588022407,
+            "slack": 12.496583588022407,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_2",
+            "value": -1.7519820870016973,
+            "slack": 1.7519820870016973,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_1",
+            "value": -13.896547848981928,
+            "slack": 13.896547848981928,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_2",
+            "value": -1.2872854485827503,
+            "slack": 1.2872854485827503,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_1",
+            "value": -15.379702032269737,
+            "slack": 15.379702032269737,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_2",
+            "value": -0.9057787324920943,
+            "slack": 0.9057787324920943,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_1",
+            "value": -18.985620528084,
+            "slack": 18.985620528084,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_2",
+            "value": -0.39266446824453327,
+            "slack": 0.39266446824453327,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_1",
+            "value": -21.14667194807826,
+            "slack": 21.14667194807826,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_2",
+            "value": -0.299344027555414,
+            "slack": 0.299344027555414,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_1",
+            "value": -23.429200397868573,
+            "slack": 23.429200397868573,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_2",
+            "value": -0.3275006166623635,
+            "slack": 0.3275006166623635,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_1",
+            "value": -25.833205877454954,
+            "slack": 25.833205877454954,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_2",
+            "value": -0.4771342355653836,
+            "slack": 0.4771342355653836,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_1",
+            "value": -28.358688386837432,
+            "slack": 28.358688386837432,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_2",
+            "value": -0.7482448842644791,
+            "slack": 0.7482448842644791,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_1",
+            "value": -1.6417067077899437,
+            "slack": 1.6417067077899437,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_1",
+            "value": -8.358293292210057,
+            "slack": 8.358293292210057,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_1",
+            "value": -0.9727440625027992,
+            "slack": 0.9727440625027992,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_1",
+            "value": -9.0272559374972,
+            "slack": 9.0272559374972,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_2",
+            "value": -3.749594821195469,
+            "slack": 3.749594821195469,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_2",
+            "value": -6.250405178804531,
+            "slack": 6.250405178804531,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_2",
+            "value": -0.21815072441162486,
+            "slack": 0.21815072441162486,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_2",
+            "value": -9.781849275588375,
+            "slack": 9.781849275588375,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_3",
+            "value": -6.131933561575082,
+            "slack": 6.131933561575082,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_3",
+            "value": -3.8680664384249184,
+            "slack": 3.8680664384249184,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_3",
+            "value": -0.6755256816233813,
+            "slack": 0.6755256816233813,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_3",
+            "value": -9.324474318376618,
+            "slack": 9.324474318376618,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_4",
+            "value": -7.193651269095341,
+            "slack": 7.193651269095341,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_4",
+            "value": -2.8063487309046593,
+            "slack": 2.8063487309046593,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_4",
+            "value": -1.1219503333296188,
+            "slack": 1.1219503333296188,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_4",
+            "value": -8.878049666670382,
+            "slack": 8.878049666670382,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_5",
+            "value": -8.320383238009658,
+            "slack": 8.320383238009658,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_5",
+            "value": -1.6796167619903422,
+            "slack": 1.6796167619903422,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_5",
+            "value": -1.5993324361944645,
+            "slack": 1.5993324361944645,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_5",
+            "value": -8.400667563805536,
+            "slack": 8.400667563805536,
+            "status": "inactive"
+          }
+        ]
+      },
+      "delivery_mode": "express",
+      "time_weight_alpha": 0.9,
+      "energy_weight_beta": 0.1
+    }
+  },
+  "balanced": {
+    "Gradient Descent": {
+      "feasible": false,
+      "message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]",
+      "objective": 0.4633933653862985,
+      "penalized_objective": 0.46345206516233006,
+      "distance_m": 10.060707031882968,
+      "time_s": 2.1745780018307483,
+      "time_limit_s": 3.0,
+      "energy_Wh": 12.80987996100698,
+      "battery_limit_Wh": 63.43804833899775,
+      "minimum_buffered_clearance_m": -0.012064736670160059,
+      "iterations": 43,
+      "runtime_s": 0.04528641700744629,
+      "final_gradient_norm": 0.30429477739753763,
+      "condition_number": null,
+      "constraint_report": {
+        "maximum_violation": 0.0007661577907427386,
+        "active_count": 1,
+        "values": [
+          {
+            "name": "battery",
+            "value": -50.628168377990775,
+            "slack": 50.628168377990775,
+            "status": "inactive"
+          },
+          {
+            "name": "time",
+            "value": -0.8254219981692517,
+            "slack": 0.8254219981692517,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_1",
+            "value": -2.1168067233878682,
+            "slack": 2.1168067233878682,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_2",
+            "value": -41.40960236576973,
+            "slack": 41.40960236576973,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_1",
+            "value": -1.2006384741749168,
+            "slack": 1.2006384741749168,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_2",
+            "value": -30.90184246368298,
+            "slack": 30.90184246368298,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_1",
+            "value": -2.712705573328625,
+            "slack": 2.712705573328625,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_2",
+            "value": -7.108221175248044,
+            "slack": 7.108221175248044,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_1",
+            "value": -5.436944674408994,
+            "slack": 5.436944674408994,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_2",
+            "value": -1.9200715151358292,
+            "slack": 1.9200715151358292,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_1",
+            "value": -16.309393071479942,
+            "slack": 16.309393071479942,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_2",
+            "value": -0.27106526250193097,
+            "slack": 0.27106526250193097,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_1",
+            "value": -6.8655585014213605,
+            "slack": 6.8655585014213605,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_2",
+            "value": -54.12908606221792,
+            "slack": 54.12908606221792,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_1",
+            "value": -5.771559411660157,
+            "slack": 5.771559411660157,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_2",
+            "value": -51.44094058877377,
+            "slack": 51.44094058877377,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_1",
+            "value": -4.749684688976203,
+            "slack": 4.749684688976203,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_2",
+            "value": -48.824919482406884,
+            "slack": 48.824919482406884,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_1",
+            "value": -3.7999343333695066,
+            "slack": 3.7999343333695066,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_2",
+            "value": -46.281022743117234,
+            "slack": 46.281022743117234,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_1",
+            "value": -2.9223083448400597,
+            "slack": 2.9223083448400597,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_2",
+            "value": -43.80925037090486,
+            "slack": 43.80925037090486,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_1",
+            "value": -1.3333182013212683,
+            "slack": 1.3333182013212683,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_2",
+            "value": -39.02751523489083,
+            "slack": 39.02751523489083,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_1",
+            "value": -0.8021472048004479,
+            "slack": 0.8021472048004479,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_2",
+            "value": -36.897745629557704,
+            "slack": 36.897745629557704,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_1",
+            "value": -0.5232937338254002,
+            "slack": 0.5232937338254002,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_2",
+            "value": -35.02029354977036,
+            "slack": 35.02029354977036,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_1",
+            "value": -0.4967577883961307,
+            "slack": 0.4967577883961307,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_2",
+            "value": -33.39515899552879,
+            "slack": 33.39515899552879,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_1",
+            "value": -0.7225393685126349,
+            "slack": 0.7225393685126349,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_2",
+            "value": -32.022341966833,
+            "slack": 32.022341966833,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_1",
+            "value": -0.38675778339830824,
+            "slack": 0.38675778339830824,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_2",
+            "value": -25.870347041641597,
+            "slack": 25.870347041641597,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_1",
+            "value": 0.0007661577907427386,
+            "slack": -0.0007661577907427386,
+            "status": "active"
+          },
+          {
+            "name": "segment_sample_12_obstacle_2",
+            "value": -21.265208369187768,
+            "slack": 21.265208369187768,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_1",
+            "value": -0.03806665060776293,
+            "slack": 0.03806665060776293,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_2",
+            "value": -17.086426446321504,
+            "slack": 17.086426446321504,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_1",
+            "value": -0.503256208593827,
+            "slack": 0.503256208593827,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_2",
+            "value": -13.33400127304279,
+            "slack": 13.33400127304279,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_1",
+            "value": -1.3948025161674464,
+            "slack": 1.3948025161674464,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_2",
+            "value": -10.007932849351642,
+            "slack": 10.007932849351642,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_1",
+            "value": -3.0374251754481003,
+            "slack": 3.0374251754481003,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_2",
+            "value": -6.114209317168756,
+            "slack": 6.114209317168756,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_1",
+            "value": -3.4138728767918103,
+            "slack": 3.4138728767918103,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_2",
+            "value": -5.171925558313699,
+            "slack": 5.171925558313699,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_1",
+            "value": -3.8420486773597506,
+            "slack": 3.8420486773597506,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_2",
+            "value": -4.2813698986828825,
+            "slack": 4.2813698986828825,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_1",
+            "value": -4.32195257715193,
+            "slack": 4.32195257715193,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_2",
+            "value": -3.4425423382762963,
+            "slack": 3.4425423382762963,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_1",
+            "value": -4.853584576168345,
+            "slack": 4.853584576168345,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_2",
+            "value": -2.655442877093945,
+            "slack": 2.655442877093945,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_1",
+            "value": -6.920122043024519,
+            "slack": 6.920122043024519,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_2",
+            "value": -1.3163397754672124,
+            "slack": 1.3163397754672124,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_1",
+            "value": -8.534858357331899,
+            "slack": 8.534858357331899,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_2",
+            "value": -0.8441669814904493,
+            "slack": 0.8441669814904493,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_1",
+            "value": -10.281153617331125,
+            "slack": 10.281153617331125,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_2",
+            "value": -0.5035531332055405,
+            "slack": 0.5035531332055405,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_1",
+            "value": -12.159007823022211,
+            "slack": 12.159007823022211,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_2",
+            "value": -0.2944982306124837,
+            "slack": 0.2944982306124837,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_1",
+            "value": -14.168420974405148,
+            "slack": 14.168420974405148,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_2",
+            "value": -0.21700227371128067,
+            "slack": 0.21700227371128067,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_1",
+            "value": -18.439519999633028,
+            "slack": 18.439519999633028,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_2",
+            "value": -0.09677759827529986,
+            "slack": 0.09677759827529986,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_1",
+            "value": -20.697346480160608,
+            "slack": 20.697346480160608,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_2",
+            "value": -0.05018948642316845,
+            "slack": 0.05018948642316845,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_1",
+            "value": -23.082872513062693,
+            "slack": 23.082872513062693,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_2",
+            "value": -0.1313009269455354,
+            "slack": 0.1313009269455354,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_1",
+            "value": -25.596098098339294,
+            "slack": 25.596098098339294,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_2",
+            "value": -0.3401119198424061,
+            "slack": 0.3401119198424061,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_1",
+            "value": -28.237023235990378,
+            "slack": 28.237023235990378,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_2",
+            "value": -0.6766224651137733,
+            "slack": 0.6766224651137733,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_1",
+            "value": -1.8936239197109501,
+            "slack": 1.8936239197109501,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_1",
+            "value": -8.10637608028905,
+            "slack": 8.10637608028905,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_1",
+            "value": -1.3595315319410177,
+            "slack": 1.3595315319410177,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_1",
+            "value": -8.640468468058982,
+            "slack": 8.640468468058982,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_2",
+            "value": -3.540189592721053,
+            "slack": 3.540189592721053,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_2",
+            "value": -6.4598104072789475,
+            "slack": 6.4598104072789475,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_2",
+            "value": -0.006558160329901709,
+            "slack": 0.006558160329901709,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_2",
+            "value": -9.993441839670098,
+            "slack": 9.993441839670098,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_3",
+            "value": -6.067973774363784,
+            "slack": 6.067973774363784,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_3",
+            "value": -3.932026225636216,
+            "slack": 3.932026225636216,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_3",
+            "value": -1.1400168598919194,
+            "slack": 1.1400168598919194,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_3",
+            "value": -8.859983140108081,
+            "slack": 8.859983140108081,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_4",
+            "value": -6.720769640280294,
+            "slack": 6.720769640280294,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_4",
+            "value": -3.2792303597197057,
+            "slack": 3.2792303597197057,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_4",
+            "value": -1.8506245881629686,
+            "slack": 1.8506245881629686,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_4",
+            "value": -8.149375411837031,
+            "slack": 8.149375411837031,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_5",
+            "value": -8.250991984075716,
+            "slack": 8.250991984075716,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_5",
+            "value": -1.749008015924284,
+            "slack": 1.749008015924284,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_5",
+            "value": -1.687895976657164,
+            "slack": 1.687895976657164,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_5",
+            "value": -8.312104023342837,
+            "slack": 8.312104023342837,
+            "status": "inactive"
+          }
+        ]
+      },
+      "delivery_mode": "balanced",
+      "time_weight_alpha": 0.5,
+      "energy_weight_beta": 0.5
+    },
+    "Heavy-Ball": {
+      "feasible": true,
+      "message": "Trajectory is fully feasible",
+      "objective": 0.5069798089902938,
+      "penalized_objective": 0.5069798089902938,
+      "distance_m": 11.007009832951196,
+      "time_s": 2.379117230311656,
+      "time_limit_s": 3.0,
+      "energy_Wh": 14.014767972359785,
+      "battery_limit_Wh": 63.43804833899775,
+      "minimum_buffered_clearance_m": 0.17608233274758178,
+      "iterations": 35,
+      "runtime_s": 0.05958104133605957,
+      "final_gradient_norm": 0.09855626256379997,
+      "condition_number": null,
+      "constraint_report": {
+        "maximum_violation": 0.0,
+        "active_count": 0,
+        "values": [
+          {
+            "name": "battery",
+            "value": -49.42328036663797,
+            "slack": 49.42328036663797,
+            "status": "inactive"
+          },
+          {
+            "name": "time",
+            "value": -0.6208827696883441,
+            "slack": 0.6208827696883441,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_1",
+            "value": -4.013182054476964,
+            "slack": 4.013182054476964,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_1_obstacle_2",
+            "value": -47.255818229897514,
+            "slack": 47.255818229897514,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_1",
+            "value": -1.0221100846253282,
+            "slack": 1.0221100846253282,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_2_obstacle_2",
+            "value": -28.152243423779463,
+            "slack": 28.152243423779463,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_1",
+            "value": -7.798111856749945,
+            "slack": 7.798111856749945,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_3_obstacle_2",
+            "value": -11.638495473130614,
+            "slack": 11.638495473130614,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_1",
+            "value": -5.717229962559473,
+            "slack": 5.717229962559473,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_4_obstacle_2",
+            "value": -2.0254458270098112,
+            "slack": 2.0254458270098112,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_1",
+            "value": -17.261317882794664,
+            "slack": 17.261317882794664,
+            "status": "inactive"
+          },
+          {
+            "name": "waypoint_5_obstacle_2",
+            "value": -1.3046794635924073,
+            "slack": 1.3046794635924073,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_1",
+            "value": -7.22411297941824,
+            "slack": 7.22411297941824,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_1_obstacle_2",
+            "value": -55.14594729572124,
+            "slack": 55.14594729572124,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_1",
+            "value": -6.4716715985277675,
+            "slack": 6.4716715985277675,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_2_obstacle_2",
+            "value": -53.45766628665429,
+            "slack": 53.45766628665429,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_1",
+            "value": -5.774357815588403,
+            "slack": 5.774357815588403,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_3_obstacle_2",
+            "value": -51.82451287553843,
+            "slack": 51.82451287553843,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_1",
+            "value": -5.1321716306001495,
+            "slack": 5.1321716306001495,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_4_obstacle_2",
+            "value": -50.246487062373674,
+            "slack": 50.246487062373674,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_1",
+            "value": -4.545113043563002,
+            "slack": 4.545113043563002,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_5_obstacle_2",
+            "value": -48.723588847160045,
+            "slack": 48.723588847160045,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_1",
+            "value": -2.7176827117345423,
+            "slack": 2.7176827117345423,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_6_obstacle_2",
+            "value": -43.27490174777735,
+            "slack": 43.27490174777735,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_1",
+            "value": -1.740978308098982,
+            "slack": 1.740978308098982,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_7_obstacle_2",
+            "value": -39.61278020476405,
+            "slack": 39.61278020476405,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_1",
+            "value": -1.0830688435702802,
+            "slack": 1.0830688435702802,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_8_obstacle_2",
+            "value": -36.26945360085762,
+            "slack": 36.26945360085762,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_1",
+            "value": -0.7439543181484369,
+            "slack": 0.7439543181484369,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_9_obstacle_2",
+            "value": -33.24492193605805,
+            "slack": 33.24492193605805,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_1",
+            "value": -0.7236347318334526,
+            "slack": 0.7236347318334526,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_10_obstacle_2",
+            "value": -30.53918521036532,
+            "slack": 30.53918521036532,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_1",
+            "value": -1.122908137721839,
+            "slack": 1.122908137721839,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_11_obstacle_2",
+            "value": -24.3714165230804,
+            "slack": 24.3714165230804,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_1",
+            "value": -1.6351204210547206,
+            "slack": 1.6351204210547206,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_12_obstacle_2",
+            "value": -21.0020038526177,
+            "slack": 21.0020038526177,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_1",
+            "value": -2.558746934623973,
+            "slack": 2.558746934623973,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_13_obstacle_2",
+            "value": -18.044005412391368,
+            "slack": 18.044005412391368,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_1",
+            "value": -3.893787678429593,
+            "slack": 3.893787678429593,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_14_obstacle_2",
+            "value": -15.497421202401416,
+            "slack": 15.497421202401416,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_1",
+            "value": -5.640242652471582,
+            "slack": 5.640242652471582,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_15_obstacle_2",
+            "value": -13.362251222647831,
+            "slack": 13.362251222647831,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_1",
+            "value": -7.024492225366642,
+            "slack": 7.024492225366642,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_16_obstacle_2",
+            "value": -9.609514549758924,
+            "slack": 9.609514549758924,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_1",
+            "value": -6.421594986923961,
+            "slack": 6.421594986923961,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_17_obstacle_2",
+            "value": -7.751256019327855,
+            "slack": 7.751256019327855,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_1",
+            "value": -5.9894201414219035,
+            "slack": 5.9894201414219035,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_18_obstacle_2",
+            "value": -6.063719881837409,
+            "slack": 6.063719881837409,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_1",
+            "value": -5.727967688860471,
+            "slack": 5.727967688860471,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_19_obstacle_2",
+            "value": -4.5469061372875865,
+            "slack": 4.5469061372875865,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_1",
+            "value": -5.63723762923966,
+            "slack": 5.63723762923966,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_20_obstacle_2",
+            "value": -3.2008147856783884,
+            "slack": 3.2008147856783884,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_1",
+            "value": -7.2802830343726574,
+            "slack": 7.2802830343726574,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_21_obstacle_2",
+            "value": -1.5443565182142276,
+            "slack": 1.5443565182142276,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_1",
+            "value": -8.987720738809575,
+            "slack": 8.987720738809575,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_22_obstacle_2",
+            "value": -1.2076518420423845,
+            "slack": 1.2076518420423845,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_1",
+            "value": -10.839543075870239,
+            "slack": 10.839543075870239,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_23_obstacle_2",
+            "value": -1.0153317984942802,
+            "slack": 1.0153317984942802,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_1",
+            "value": -12.835750045554637,
+            "slack": 12.835750045554637,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_24_obstacle_2",
+            "value": -0.967396387569917,
+            "slack": 0.967396387569917,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_1",
+            "value": -14.976341647862785,
+            "slack": 14.976341647862785,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_25_obstacle_2",
+            "value": -1.0638456092692916,
+            "slack": 1.0638456092692916,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_1",
+            "value": -19.227348175039715,
+            "slack": 19.227348175039715,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_26_obstacle_2",
+            "value": -0.9526802651617903,
+            "slack": 0.9526802651617903,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_1",
+            "value": -21.323255019934848,
+            "slack": 21.323255019934848,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_27_obstacle_2",
+            "value": -0.730557619381238,
+            "slack": 0.730557619381238,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_1",
+            "value": -23.54903841748004,
+            "slack": 23.54903841748004,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_28_obstacle_2",
+            "value": -0.6383115262507477,
+            "slack": 0.6383115262507477,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_1",
+            "value": -25.90469836767528,
+            "slack": 25.90469836767528,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_29_obstacle_2",
+            "value": -0.675941985770316,
+            "slack": 0.675941985770316,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_1",
+            "value": -28.39023487052058,
+            "slack": 28.39023487052058,
+            "status": "inactive"
+          },
+          {
+            "name": "segment_sample_30_obstacle_2",
+            "value": -0.8434489979399453,
+            "slack": 0.8434489979399453,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_1",
+            "value": -1.6103949186593411,
+            "slack": 1.6103949186593411,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_1",
+            "value": -8.389605081340658,
+            "slack": 8.389605081340658,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_1",
+            "value": -0.8943812662225125,
+            "slack": 0.8943812662225125,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_1",
+            "value": -9.105618733777488,
+            "slack": 9.105618733777488,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_2",
+            "value": -3.8384239639786424,
+            "slack": 3.8384239639786424,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_2",
+            "value": -6.161576036021358,
+            "slack": 6.161576036021358,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_2",
+            "value": -0.01449748006832567,
+            "slack": 0.01449748006832567,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_2",
+            "value": -9.985502519931675,
+            "slack": 9.985502519931675,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_3",
+            "value": -6.55964029547088,
+            "slack": 6.55964029547088,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_3",
+            "value": -3.4403597045291203,
+            "slack": 3.4403597045291203,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_3",
+            "value": -0.03542166403311586,
+            "slack": 0.03542166403311586,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_3",
+            "value": -9.964578335966884,
+            "slack": 9.964578335966884,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_4",
+            "value": -6.770192933271437,
+            "slack": 6.770192933271437,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_4",
+            "value": -3.229807066728563,
+            "slack": 3.229807066728563,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_4",
+            "value": -1.7757292976561057,
+            "slack": 1.7757292976561057,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_4",
+            "value": -8.224270702343894,
+            "slack": 8.224270702343894,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_lower_waypoint_5",
+            "value": -8.343423987553317,
+            "slack": 8.343423987553317,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_x_upper_waypoint_5",
+            "value": -1.656576012446683,
+            "slack": 1.656576012446683,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_lower_waypoint_5",
+            "value": -1.42378123746762,
+            "slack": 1.42378123746762,
+            "status": "inactive"
+          },
+          {
+            "name": "workspace_y_upper_waypoint_5",
+            "value": -8.57621876253238,
+            "slack": 8.57621876253238,
+            "status": "inactive"
+          }
+        ]
+      },
+      "delivery_mode": "balanced",
+      "time_weight_alpha": 0.5,
+      "energy_weight_beta": 0.5
+    }
+  }
+}
