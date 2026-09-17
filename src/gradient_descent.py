@@ -25,6 +25,7 @@ class GradientDescentOptimizer:
         self.feasibility_history = []
         self.constraint_violation_history = []
         self.runtime = 0
+        self.stopping_reason = None
 
     def fit(self, z0, w_time=1.0, w_energy=1.0, w_smooth=0.0):
         z = np.array(z0, dtype=float)
@@ -35,6 +36,7 @@ class GradientDescentOptimizer:
         self.grad_norm_history = []
         self.feasibility_history = []
         self.constraint_violation_history = []
+        self.stopping_reason = "maximum_iterations"
 
         start_time = time.time()
 
@@ -52,14 +54,17 @@ class GradientDescentOptimizer:
 
             # 3. Stopping criteria
             if g_norm < self.tol:
+                self.stopping_reason = "gradient_norm_tolerance"
                 break
             if k > 0 and abs(self.history[-1] - self.history[-2]) < self.tol:
+                self.stopping_reason = "objective_change_tolerance"
                 break
 
             # 4. Update
             step = self.eta * g
             step_norm = np.linalg.norm(step)
             if not np.isfinite(step_norm):
+                self.stopping_reason = "nonfinite_step"
                 break
             if step_norm > self.max_step:
                 step *= self.max_step / step_norm

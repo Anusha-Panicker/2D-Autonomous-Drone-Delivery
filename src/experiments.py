@@ -48,12 +48,12 @@ def build_problem(scenario, count):
     return environment, objective, constraints, derivatives, feasibility, initial_waypoints(environment, count)
 
 
-def run_method(environment, objective, constraints, derivatives, feasibility, z0, method, learning_rate=0.01, momentum=0.9, rho=100.0, max_iter=1000, mode="balanced"):
+def run_method(environment, objective, constraints, derivatives, feasibility, z0, method, learning_rate=0.01, momentum=0.9, rho=100.0, max_iter=1000, tol=1e-5, mode="balanced"):
     alpha, beta = objective.mode_weights(mode)
     if method == "Gradient Descent":
-        optimizer = GradientDescentOptimizer(environment, objective, constraints, derivatives, learning_rate=learning_rate, rho=rho, max_iter=max_iter)
+        optimizer = GradientDescentOptimizer(environment, objective, constraints, derivatives, learning_rate=learning_rate, rho=rho, max_iter=max_iter, tol=tol)
     else:
-        optimizer = HeavyBallOptimizer(environment, objective, constraints, derivatives, learning_rate=learning_rate, momentum=momentum, rho=rho, max_iter=max_iter)
+        optimizer = HeavyBallOptimizer(environment, objective, constraints, derivatives, learning_rate=learning_rate, momentum=momentum, rho=rho, max_iter=max_iter, tol=tol)
     solution = optimizer.fit(z0, w_time=alpha, w_energy=beta)
     metrics = solution_metrics(environment, objective, constraints, feasibility, optimizer, solution)
     metrics["delivery_mode"] = mode

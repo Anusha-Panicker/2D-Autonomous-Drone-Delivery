@@ -12,13 +12,7 @@ env/
 */.ipynb_checkpoints/*
 
 # Project Outputs (Artifacts)
-results/
 logs/
-*.png
-*.jpg
-*.jpeg
-*.pdf
-*.csv
 
 # OS specific
 .DS_Store

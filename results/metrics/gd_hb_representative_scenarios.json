@@ -1,0 +1,162 @@
+{
+  "scenario_0": {
+    "scenario_id": 0,
+    "selection_reason": "primary representative scenario",
+    "methods": {
+      "Gradient Descent": {
+        "scenario_id": 0,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Gradient Descent",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 3.181619644165039,
+        "final_objective": 0.4363565820131996,
+        "final_penalized_objective": 0.4363565820131996,
+        "final_penalized_gradient_norm": 0.032298477094372245,
+        "maximum_sampled_constraint_violation": 0.0,
+        "exact_feasible": false,
+        "minimum_clearance_m": -0.0025280341678652896,
+        "condition_number": null,
+        "hessian_classification": "positive semidefinite"
+      },
+      "Heavy-Ball": {
+        "scenario_id": 0,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Heavy-Ball",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 3.193908929824829,
+        "final_objective": 0.4411064088743192,
+        "final_penalized_objective": 0.4411064088743192,
+        "final_penalized_gradient_norm": 0.02500254426087678,
+        "maximum_sampled_constraint_violation": 0.0,
+        "exact_feasible": true,
+        "minimum_clearance_m": 0.09295155257473753,
+        "condition_number": null,
+        "hessian_classification": "positive semidefinite"
+      }
+    }
+  },
+  "easy_stable": {
+    "scenario_id": 29,
+    "selection_reason": "lowest paired final penalized gradient among exactly feasible pairs",
+    "methods": {
+      "Gradient Descent": {
+        "scenario_id": 29,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Gradient Descent",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 4.863906621932983,
+        "final_objective": 0.2797743592633439,
+        "final_penalized_objective": 0.2797743592633439,
+        "final_penalized_gradient_norm": 0.008161806655080348,
+        "maximum_sampled_constraint_violation": 0.0,
+        "exact_feasible": true,
+        "minimum_clearance_m": 0.004015183980834669,
+        "condition_number": null,
+        "hessian_classification": "positive semidefinite"
+      },
+      "Heavy-Ball": {
+        "scenario_id": 29,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Heavy-Ball",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 4.8420655727386475,
+        "final_objective": 0.2811967360605244,
+        "final_penalized_objective": 0.2811967360605244,
+        "final_penalized_gradient_norm": 0.00926089057493927,
+        "maximum_sampled_constraint_violation": 0.0,
+        "exact_feasible": true,
+        "minimum_clearance_m": 0.1384616598871713,
+        "condition_number": null,
+        "hessian_classification": "positive semidefinite"
+      }
+    }
+  },
+  "difficult_high_violation": {
+    "scenario_id": 44,
+    "selection_reason": "highest paired sampled constraint violation",
+    "methods": {
+      "Gradient Descent": {
+        "scenario_id": 44,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Gradient Descent",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 6.301037073135376,
+        "final_objective": 0.7076009751111569,
+        "final_penalized_objective": 2677.783258514526,
+        "final_penalized_gradient_norm": 2591.4162117350515,
+        "maximum_sampled_constraint_violation": 1.2660555596656415,
+        "exact_feasible": false,
+        "minimum_clearance_m": -0.5370620058359501,
+        "condition_number": 13054593.49789083,
+        "hessian_classification": "positive definite"
+      },
+      "Heavy-Ball": {
+        "scenario_id": 44,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Heavy-Ball",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 6.517027378082275,
+        "final_objective": 0.697327962728273,
+        "final_penalized_objective": 2251.5970041523237,
+        "final_penalized_gradient_norm": 7241.319322078234,
+        "maximum_sampled_constraint_violation": 0.9506364226013484,
+        "exact_feasible": false,
+        "minimum_clearance_m": -0.47504998995039593,
+        "condition_number": 35342543.89485829,
+        "hessian_classification": "positive definite"
+      }
+    }
+  },
+  "contrasting_feasibility": {
+    "scenario_id": 0,
+    "selection_reason": "GD and Heavy-Ball exact feasibility differs when available",
+    "methods": {
+      "Gradient Descent": {
+        "scenario_id": 0,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Gradient Descent",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 3.181619644165039,
+        "final_objective": 0.4363565820131996,
+        "final_penalized_objective": 0.4363565820131996,
+        "final_penalized_gradient_norm": 0.032298477094372245,
+        "maximum_sampled_constraint_violation": 0.0,
+        "exact_feasible": false,
+        "minimum_clearance_m": -0.0025280341678652896,
+        "condition_number": null,
+        "hessian_classification": "positive semidefinite"
+      },
+      "Heavy-Ball": {
+        "scenario_id": 0,
+        "same_initialization": true,
+        "waypoints": 5,
+        "method": "Heavy-Ball",
+        "iterations": 3000,
+        "stopping_reason": "maximum_iterations",
+        "runtime_s": 3.193908929824829,
+        "final_objective": 0.4411064088743192,
+        "final_penalized_objective": 0.4411064088743192,
+        "final_penalized_gradient_norm": 0.02500254426087678,
+        "maximum_sampled_constraint_violation": 0.0,
+        "exact_feasible": true,
+        "minimum_clearance_m": 0.09295155257473753,
+        "condition_number": null,
+        "hessian_classification": "positive semidefinite"
+      }
+    }
+  }
+}

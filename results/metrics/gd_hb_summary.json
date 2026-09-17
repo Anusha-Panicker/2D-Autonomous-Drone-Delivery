@@ -1,0 +1,70 @@
+{
+  "configuration": {
+    "dataset_path": "C:\\Users\\Anusha\\Downloads\\Drones Autonomous Vehicles\\Drones Autonomous Vehicles\\data\\drone_optimization_dataset.json",
+    "scenarios": 50,
+    "waypoints": 5,
+    "learning_rate": 0.01,
+    "heavy_ball_momentum": 0.9,
+    "max_iter": 3000,
+    "rho": 1000.0,
+    "tol": 1e-08,
+    "mode": "balanced",
+    "initialization": "straight",
+    "initialization_seed": 0
+  },
+  "summary": {
+    "Gradient Descent": {
+      "scenario_count": 50,
+      "mean_final_objective": 0.3998555399597798,
+      "median_final_objective": 0.3957539025919967,
+      "std_final_objective": 0.10330849751490952,
+      "mean_iterations": 3000.0,
+      "median_iterations": 3000.0,
+      "mean_runtime_s": 5.950927062034607,
+      "median_runtime_s": 6.215448975563049,
+      "mean_final_penalized_gradient_norm": 461.02603997027325,
+      "median_final_penalized_gradient_norm": 0.03590540873675454,
+      "mean_sampled_constraint_violation": 0.12457772381153628,
+      "median_sampled_constraint_violation": 0.0,
+      "max_sampled_constraint_violation": 1.2660555596656415,
+      "mean_minimum_clearance_m": -0.048837045825214406,
+      "median_minimum_clearance_m": 0.001610950148450252,
+      "exact_feasibility_rate": 0.6,
+      "convergence_rate": 0.0,
+      "valid_condition_number_count": 3,
+      "mean_condition_number": 686231467.4289904,
+      "hessian_classification_counts": {
+        "positive semidefinite": 47,
+        "positive definite": 3
+      },
+      "condition_number_note": "Kappa is averaged only over positive-definite Hessians; indefinite, semidefinite, and singular cases are reported without forcing a condition number."
+    },
+    "Heavy-Ball": {
+      "scenario_count": 50,
+      "mean_final_objective": 0.4433626868369489,
+      "median_final_objective": 0.43408976526302,
+      "std_final_objective": 0.10964466712785237,
+      "mean_iterations": 3000.0,
+      "median_iterations": 3000.0,
+      "mean_runtime_s": 5.956016840934754,
+      "median_runtime_s": 6.132687926292419,
+      "mean_final_penalized_gradient_norm": 560.6764463601621,
+      "median_final_penalized_gradient_norm": 0.05488903550615694,
+      "mean_sampled_constraint_violation": 0.12111609870895199,
+      "median_sampled_constraint_violation": 0.0,
+      "max_sampled_constraint_violation": 0.9921112767447364,
+      "mean_minimum_clearance_m": 0.09454704642604003,
+      "median_minimum_clearance_m": 0.13291884749832905,
+      "exact_feasibility_rate": 0.8,
+      "convergence_rate": 0.0,
+      "valid_condition_number_count": 3,
+      "mean_condition_number": 139882526.31498346,
+      "hessian_classification_counts": {
+        "positive semidefinite": 45,
+        "indefinite": 2,
+        "positive definite": 3
+      },
+      "condition_number_note": "Kappa is averaged only over positive-definite Hessians; indefinite, semidefinite, and singular cases are reported without forcing a condition number."
+    }
+  }
+}
