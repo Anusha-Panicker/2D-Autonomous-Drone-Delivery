@@ -37,10 +37,37 @@ Run the main experiment script to optimize a trajectory and generate comparison 
 python src/experiments.py
 ```
 
+The GD vs Heavy-Ball comparison can be run using:
+```bash
+python scripts/run_gd_hb_comparison.py
+```
+
 ## 📊 Mathematical Approach
-The project uses a **Penalty Method** to transform a constrained optimization problem into an unconstrained one:
-$$F_{penalty}(z) = F_{objective}(z) + \rho \sum \max(0, g_j(z))^2$$
-Where $g_j(z)$ represents the constraints (NFZ, Battery, Workspace).
+The constrained problem is handled using a quadratic penalty formulation:
+
+$$ F_{\text{penalty}}(z) = F_{\text{objective}}(z) + \rho \sum_j \max(0,g_j(z))^2 $$
+
+where \(z\) represents the waypoint coordinates and \(g_j(z)\) represents the optimization constraints.
+
+The project also includes **Hessian/eigenvalue analysis, KKT verification, constraint-violation analysis, feasibility checking, and condition-number (\(\kappa\)) analysis.**
+
+## 🔬 GD vs Heavy-Ball Evaluation
+
+Both methods are evaluated under the same experimental settings and starting conditions across **50 scenarios.**
+
+The comparison includes:
+
+-Final objective and penalized objective
+-Penalized gradient norm
+-Constraint violations
+-Exact trajectory feasibility
+-Minimum obstacle clearance
+-Iterations and runtime
+-Hessian classification
+-Valid condition numbers (\(\kappa\))
+-Convergence and trajectory plots
+
+The current experiments show that difficult scenarios can remain infeasible or fail to satisfy the numerical stopping criteria within the iteration limit. These cases are retained as part of the analysis rather than being removed.
 
 ## Delivery priority modes
 
