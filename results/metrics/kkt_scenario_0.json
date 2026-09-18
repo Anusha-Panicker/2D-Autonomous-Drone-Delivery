@@ -791,6 +791,25 @@
         "stationary": false,
         "complementary_slackness": true
       },
+      "summary": {
+        "objective": 0.4363565820131996,
+        "feasible": true,
+        "max_constraint_violation": 0.0,
+        "active_constraints": [],
+        "multipliers": [],
+        "minimum_multiplier": 0.0,
+        "dual_feasibility": true,
+        "stationarity_residual": 0.03228666548700258,
+        "complementarity_residual": 0.0,
+        "primal_feasibility": true,
+        "kkt_satisfied": false,
+        "candidate": "Gradient Descent",
+        "penalized_objective": 0.4363565820131996,
+        "optimizer_final_gradient_norm": 0.032298477094372245,
+        "formal_primal_feasible": true,
+        "exact_feasible": false,
+        "exact_feasibility_message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]"
+      },
       "kkt_satisfied": false,
       "candidate": {
         "optimizer": "Gradient Descent",
@@ -1616,6 +1635,25 @@
         "stationary": false,
         "complementary_slackness": true
       },
+      "summary": {
+        "objective": 0.4411064088743192,
+        "feasible": true,
+        "max_constraint_violation": 0.0,
+        "active_constraints": [],
+        "multipliers": [],
+        "minimum_multiplier": 0.0,
+        "dual_feasibility": true,
+        "stationarity_residual": 0.024952152959684965,
+        "complementarity_residual": 0.0,
+        "primal_feasibility": true,
+        "kkt_satisfied": false,
+        "candidate": "Heavy-Ball",
+        "penalized_objective": 0.4411064088743192,
+        "optimizer_final_gradient_norm": 0.02500254426087678,
+        "formal_primal_feasible": true,
+        "exact_feasible": true,
+        "exact_feasibility_message": "Trajectory is fully feasible"
+      },
       "kkt_satisfied": false,
       "candidate": {
         "optimizer": "Heavy-Ball",
@@ -1665,6 +1703,46 @@
       "finite_difference_note": "Central differences are applied to the original objective and the explicit sampled constraint functions. Results were stable for steps from 1e-4 through 1e-7 on Scenario 0. The exact projection-based feasibility checker is reported separately."
     }
   },
+  "kkt_summary_table": [
+    {
+      "objective": 0.4363565820131996,
+      "feasible": true,
+      "max_constraint_violation": 0.0,
+      "active_constraints": [],
+      "multipliers": [],
+      "minimum_multiplier": 0.0,
+      "dual_feasibility": true,
+      "stationarity_residual": 0.03228666548700258,
+      "complementarity_residual": 0.0,
+      "primal_feasibility": true,
+      "kkt_satisfied": false,
+      "candidate": "Gradient Descent",
+      "penalized_objective": 0.4363565820131996,
+      "optimizer_final_gradient_norm": 0.032298477094372245,
+      "formal_primal_feasible": true,
+      "exact_feasible": false,
+      "exact_feasibility_message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]"
+    },
+    {
+      "objective": 0.4411064088743192,
+      "feasible": true,
+      "max_constraint_violation": 0.0,
+      "active_constraints": [],
+      "multipliers": [],
+      "minimum_multiplier": 0.0,
+      "dual_feasibility": true,
+      "stationarity_residual": 0.024952152959684965,
+      "complementarity_residual": 0.0,
+      "primal_feasibility": true,
+      "kkt_satisfied": false,
+      "candidate": "Heavy-Ball",
+      "penalized_objective": 0.4411064088743192,
+      "optimizer_final_gradient_norm": 0.02500254426087678,
+      "formal_primal_feasible": true,
+      "exact_feasible": true,
+      "exact_feasibility_message": "Trajectory is fully feasible"
+    }
+  ],
   "stopping_diagnosis": {
     "existing_default_tolerance": 1e-05,
     "heavy_ball_default_run": "With the existing default tolerance, Heavy-Ball stopped at 306 iterations because objective change was below tolerance while its gradient norm remained above tolerance. The KKT runs use tol=1e-8 to prevent that premature exit."

@@ -92,9 +92,16 @@ def analyze_kkt(
     constraint_jacobian = _central_difference(
         constraint_function, z, finite_difference_step
     )
-    # A violated inequality is not an active KKT constraint.  Active means
-    # feasible and within tolerance of the boundary: -tol <= g(z) <= 0.
-    active_mask = (values <= 0.0) & (values >= -active_tolerance)
+    # KKT active-set multipliers are meaningful only for a primal-feasible
+    # candidate. A violated inequality is therefore never admitted as active.
+    candidate_primal_feasible = bool(
+        np.max(np.maximum(values, 0.0), initial=0.0) <= feasibility_tolerance
+    )
+    active_mask = (
+        candidate_primal_feasible
+        & (values <= 0.0)
+        & (values >= -active_tolerance)
+    )
     active_indices = np.flatnonzero(active_mask)
 
     multipliers = np.zeros(values.size, dtype=float)
@@ -145,6 +152,26 @@ def analyze_kkt(
         <= feasibility_tolerance,
     }
 
+    summary = {
+        "objective": float(objective_function(z)),
+        "feasible": checks["primal_feasible"],
+        "max_constraint_violation": residuals["primal_violation_max"],
+        "active_constraints": [
+            constraints_report[index]["name"] for index in active_indices
+        ],
+        "multipliers": [
+            constraints_report[index]["multiplier"] for index in active_indices
+        ],
+        "minimum_multiplier": float(np.min(multipliers[active_indices]))
+        if active_indices.size
+        else 0.0,
+        "dual_feasibility": checks["dual_feasible"],
+        "stationarity_residual": residuals["stationarity_norm"],
+        "complementarity_residual": residuals["complementary_slackness_max"],
+        "primal_feasibility": checks["primal_feasible"],
+        "kkt_satisfied": bool(all(checks.values())),
+    }
+
     return {
         "formulation": {
             "constraint_convention": "g(z) <= 0",
@@ -185,5 +212,6 @@ def analyze_kkt(
         "constraints": constraints_report,
         "residuals": residuals,
         "checks": checks,
+        "summary": summary,
         "kkt_satisfied": bool(all(checks.values())),
     }
