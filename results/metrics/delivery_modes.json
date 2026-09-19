@@ -1,0 +1,17 @@
+{
+  "normal": {
+    "feasible": false,
+    "message": "Waypoint [3.73794325 1.64412746] is within 1.52 m of obstacle [3.9400971161919447, 1.833089012809582]",
+    "objective": 0.8269673921687624
+  },
+  "express": {
+    "feasible": false,
+    "message": "Waypoint [3.73794325 1.64412746] is within 1.52 m of obstacle [3.9400971161919447, 1.833089012809582]",
+    "objective": 0.8269673921687624
+  },
+  "balanced": {
+    "feasible": false,
+    "message": "Waypoint [3.73794325 1.64412746] is within 1.52 m of obstacle [3.9400971161919447, 1.833089012809582]",
+    "objective": 0.8269673921687624
+  }
+}

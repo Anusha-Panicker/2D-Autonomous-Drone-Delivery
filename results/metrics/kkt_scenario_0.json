@@ -1,0 +1,1750 @@
+{
+  "scenario_id": 0,
+  "waypoints": 5,
+  "shared_initial_decision_vector": [
+    2.2465377895347443,
+    1.5246083678218334,
+    3.7379432489911224,
+    1.6441274631262501,
+    5.2293487084475005,
+    1.7636465584306666,
+    6.720754167903879,
+    1.8831656537350832,
+    8.212159627360256,
+    2.0026847490394997
+  ],
+  "methods": {
+    "Gradient Descent": {
+      "formulation": {
+        "constraint_convention": "g(z) <= 0",
+        "lagrangian": "L(z, lambda) = f(z) + sum(lambda_j * g_j(z))",
+        "objective": "f(z) = combined_objective(z, w_time, w_energy, w_smooth)",
+        "decision_variables": "interior waypoint coordinates z",
+        "constraint_groups": [
+          "battery",
+          "time",
+          "waypoint NFZ constraints",
+          "sampled interior-segment NFZ constraints",
+          "workspace bounds"
+        ],
+        "segment_constraint_note": "The formal KKT system uses the five interior samples per segment returned by Constraints.segment_nfz_constraint. FeasibilityChecker additionally uses the exact projection of each obstacle center onto every full segment; that exact continuous segment condition is reported separately and is not silently substituted into the formal KKT vector."
+      },
+      "settings": {
+        "w_time": 0.5,
+        "w_energy": 0.5,
+        "w_smooth": 0.0,
+        "active_tolerance": 0.001,
+        "feasibility_tolerance": 1e-06,
+        "finite_difference_step": 1e-06
+      },
+      "objective_value": 0.4363565820131996,
+      "objective_gradient_norm": 0.03228666548700258,
+      "active_constraint_count": 0,
+      "active_constraints": [],
+      "constraints": [
+        {
+          "name": "battery",
+          "value": -51.375563518731354,
+          "slack": 51.375563518731354,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "time",
+          "value": -0.952298209084339,
+          "slack": 0.952298209084339,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_1_obstacle_1",
+          "value": -3.0049830718248733,
+          "slack": 3.0049830718248733,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_1_obstacle_2",
+          "value": -44.33059061752765,
+          "slack": 44.33059061752765,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_2_obstacle_1",
+          "value": -0.30876579330053566,
+          "slack": 0.30876579330053566,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_2_obstacle_2",
+          "value": -26.216911552213123,
+          "slack": 26.216911552213123,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_3_obstacle_1",
+          "value": -3.054780045813188,
+          "slack": 3.054780045813188,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_3_obstacle_2",
+          "value": -7.822929249253541,
+          "slack": 7.822929249253541,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_4_obstacle_1",
+          "value": -6.794727263964199,
+          "slack": 6.794727263964199,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_4_obstacle_2",
+          "value": -3.403771633598093,
+          "slack": 3.403771633598093,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_5_obstacle_1",
+          "value": -16.507331921328518,
+          "slack": 16.507331921328518,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_5_obstacle_2",
+          "value": -0.16640584992526364,
+          "slack": 0.16640584992526364,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_1_obstacle_1",
+          "value": -7.030634463619504,
+          "slack": 7.030634463619504,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_1_obstacle_2",
+          "value": -54.63296400830288,
+          "slack": 54.63296400830288,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_2_obstacle_1",
+          "value": -6.094892707739651,
+          "slack": 6.094892707739651,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_2_obstacle_2",
+          "value": -52.4418778526269,
+          "slack": 52.4418778526269,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_3_obstacle_1",
+          "value": -5.224456690620262,
+          "slack": 5.224456690620262,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_3_obstacle_2",
+          "value": -50.3160974357114,
+          "slack": 50.3160974357114,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_4_obstacle_1",
+          "value": -4.419326412261335,
+          "slack": 4.419326412261335,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_4_obstacle_2",
+          "value": -48.25562275755634,
+          "slack": 48.25562275755634,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_5_obstacle_1",
+          "value": -3.679501872662871,
+          "slack": 3.679501872662871,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_5_obstacle_2",
+          "value": -46.260453818161764,
+          "slack": 46.260453818161764,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_6_obstacle_1",
+          "value": -1.8341427613183354,
+          "slack": 1.8341427613183354,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_6_obstacle_2",
+          "value": -40.59017334255607,
+          "slack": 40.59017334255607,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_7_obstacle_1",
+          "value": -0.951890756446125,
+          "slack": 0.951890756446125,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_7_obstacle_2",
+          "value": -37.13834437321883,
+          "slack": 37.13834437321883,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_8_obstacle_1",
+          "value": -0.3582270572082402,
+          "slack": 0.3582270572082402,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_8_obstacle_2",
+          "value": -33.97510370951592,
+          "slack": 33.97510370951592,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_9_obstacle_1",
+          "value": -0.05315166360467938,
+          "slack": 0.05315166360467938,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_9_obstacle_2",
+          "value": -31.100451351447322,
+          "slack": 31.100451351447322,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_10_obstacle_1",
+          "value": -0.036664575635444674,
+          "slack": 0.036664575635444674,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_10_obstacle_2",
+          "value": -28.514387299013066,
+          "slack": 28.514387299013066,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_11_obstacle_1",
+          "value": -0.02370916064395745,
+          "slack": 0.02370916064395745,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_11_obstacle_2",
+          "value": -22.408522160311172,
+          "slack": 22.408522160311172,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_12_obstacle_1",
+          "value": -0.03574279788418666,
+          "slack": 0.03574279788418666,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_12_obstacle_2",
+          "value": -18.89722303830603,
+          "slack": 18.89722303830603,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_13_obstacle_1",
+          "value": -0.3448667050212242,
+          "slack": 0.3448667050212242,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_13_obstacle_2",
+          "value": -15.683014186197699,
+          "slack": 15.683014186197699,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_14_obstacle_1",
+          "value": -0.9510808820550691,
+          "slack": 0.9510808820550691,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_14_obstacle_2",
+          "value": -12.765895603986172,
+          "slack": 12.765895603986172,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_15_obstacle_1",
+          "value": -1.8543853289857255,
+          "slack": 1.8543853289857255,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_15_obstacle_2",
+          "value": -10.145867291671449,
+          "slack": 10.145867291671449,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_16_obstacle_1",
+          "value": -3.5675216839973665,
+          "slack": 3.5675216839973665,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_16_obstacle_2",
+          "value": -6.975820081803311,
+          "slack": 6.975820081803311,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_17_obstacle_1",
+          "value": -4.124496481451278,
+          "slack": 4.124496481451278,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_17_obstacle_2",
+          "value": -6.172944073622807,
+          "slack": 6.172944073622807,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_18_obstacle_1",
+          "value": -4.725704438174914,
+          "slack": 4.725704438174914,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_18_obstacle_2",
+          "value": -5.414301224712036,
+          "slack": 5.414301224712036,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_19_obstacle_1",
+          "value": -5.371145554168279,
+          "slack": 5.371145554168279,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_19_obstacle_2",
+          "value": -4.699891535070994,
+          "slack": 4.699891535070994,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_20_obstacle_1",
+          "value": -6.060819829431376,
+          "slack": 6.060819829431376,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_20_obstacle_2",
+          "value": -4.0297150046996775,
+          "slack": 4.0297150046996775,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_21_obstacle_1",
+          "value": -8.133151989363142,
+          "slack": 8.133151989363142,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_21_obstacle_2",
+          "value": -2.583867952157508,
+          "slack": 2.583867952157508,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_22_obstacle_1",
+          "value": -9.583713801760126,
+          "slack": 9.583713801760126,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_22_obstacle_2",
+          "value": -1.8761013577149717,
+          "slack": 1.8761013577149717,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_23_obstacle_1",
+          "value": -11.146412701155153,
+          "slack": 11.146412701155153,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_23_obstacle_2",
+          "value": -1.2804718502704784,
+          "slack": 1.2804718502704784,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_24_obstacle_1",
+          "value": -12.821248687548234,
+          "slack": 12.821248687548234,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_24_obstacle_2",
+          "value": -0.7969794298240287,
+          "slack": 0.7969794298240287,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_25_obstacle_1",
+          "value": -14.608221760939358,
+          "slack": 14.608221760939358,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_25_obstacle_2",
+          "value": -0.42562409637562393,
+          "slack": 0.42562409637562393,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_26_obstacle_1",
+          "value": -18.617509775166763,
+          "slack": 18.617509775166763,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_26_obstacle_2",
+          "value": -0.02260215512133623,
+          "slack": 0.02260215512133623,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_27_obstacle_1",
+          "value": -20.850170887782216,
+          "slack": 20.850170887782216,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_27_obstacle_2",
+          "value": -0.0012817190946057266,
+          "slack": 0.0012817190946057266,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_28_obstacle_1",
+          "value": -23.205315259174867,
+          "slack": 23.205315259174867,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_28_obstacle_2",
+          "value": -0.10244454184507257,
+          "slack": 0.10244454184507257,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_29_obstacle_1",
+          "value": -25.682942889344694,
+          "slack": 25.682942889344694,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_29_obstacle_2",
+          "value": -0.3260906233727314,
+          "slack": 0.3260906233727314,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_30_obstacle_1",
+          "value": -28.28305377829172,
+          "slack": 28.28305377829172,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_30_obstacle_2",
+          "value": -0.6722199636775859,
+          "slack": 0.6722199636775859,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_1",
+          "value": -1.7773572383553058,
+          "slack": 1.7773572383553058,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_1",
+          "value": -8.222642761644694,
+          "slack": 8.222642761644694,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_1",
+          "value": -1.0437590432443273,
+          "slack": 1.0437590432443273,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_1",
+          "value": -8.956240956755673,
+          "slack": 8.956240956755673,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_2",
+          "value": -3.9023533170555353,
+          "slack": 3.9023533170555353,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_2",
+          "value": -6.097646682944465,
+          "slack": 6.097646682944465,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_2",
+          "value": -0.21975590797935549,
+          "slack": 0.21975590797935549,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_2",
+          "value": -9.780244092020645,
+          "slack": 9.780244092020645,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_3",
+          "value": -6.088073766518009,
+          "slack": 6.088073766518009,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_3",
+          "value": -3.9119262334819913,
+          "slack": 3.9119262334819913,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_3",
+          "value": -0.9749055454315028,
+          "slack": 0.9749055454315028,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_3",
+          "value": -9.025094454568498,
+          "slack": 9.025094454568498,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_4",
+          "value": -6.911066186502668,
+          "slack": 6.911066186502668,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_4",
+          "value": -3.0889338134973316,
+          "slack": 3.0889338134973316,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_4",
+          "value": -1.319695834597126,
+          "slack": 1.319695834597126,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_4",
+          "value": -8.680304165402873,
+          "slack": 8.680304165402873,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_5",
+          "value": -8.274795211613908,
+          "slack": 8.274795211613908,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_5",
+          "value": -1.7252047883860921,
+          "slack": 1.7252047883860921,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_5",
+          "value": -1.7180809648843287,
+          "slack": 1.7180809648843287,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_5",
+          "value": -8.28191903511567,
+          "slack": 8.28191903511567,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        }
+      ],
+      "residuals": {
+        "primal_violation_max": 0.0,
+        "stationarity_norm": 0.03228666548700258,
+        "dual_violation_max": 0.0,
+        "complementary_slackness_max": 0.0
+      },
+      "checks": {
+        "primal_feasible": true,
+        "dual_feasible": true,
+        "stationary": false,
+        "complementary_slackness": true
+      },
+      "summary": {
+        "objective": 0.4363565820131996,
+        "feasible": true,
+        "max_constraint_violation": 0.0,
+        "active_constraints": [],
+        "multipliers": [],
+        "minimum_multiplier": 0.0,
+        "dual_feasibility": true,
+        "stationarity_residual": 0.03228666548700258,
+        "complementarity_residual": 0.0,
+        "primal_feasibility": true,
+        "kkt_satisfied": false,
+        "candidate": "Gradient Descent",
+        "penalized_objective": 0.4363565820131996,
+        "optimizer_final_gradient_norm": 0.032298477094372245,
+        "formal_primal_feasible": true,
+        "exact_feasible": false,
+        "exact_feasibility_message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]"
+      },
+      "kkt_satisfied": false,
+      "candidate": {
+        "optimizer": "Gradient Descent",
+        "decision_vector": [
+          1.7773572383553058,
+          1.0437590432443273,
+          3.9023533170555353,
+          0.21975590797935549,
+          6.088073766518009,
+          0.9749055454315028,
+          6.911066186502668,
+          1.319695834597126,
+          8.274795211613908,
+          1.7180809648843287
+        ],
+        "iterations": 3000,
+        "learning_rate": 0.01,
+        "momentum": 0.0,
+        "penalty_coefficient": 1000.0,
+        "maximum_iterations": 3000,
+        "optimizer_tolerance": 1e-08,
+        "stopping_reason": "maximum_iterations",
+        "last_objective_change": 1.0437654289985332e-05,
+        "final_gradient_norm_penalized": 0.032298477094372245,
+        "objective": 0.4363565820131996,
+        "penalized_objective": 0.4363565820131996,
+        "minimum_buffered_clearance_m": -0.0025280341678652896
+      },
+      "exact_feasibility": {
+        "feasible": false,
+        "message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]"
+      },
+      "scenario_id": 0,
+      "waypoints": 5,
+      "initial_decision_vector": [
+        2.2465377895347443,
+        1.5246083678218334,
+        3.7379432489911224,
+        1.6441274631262501,
+        5.2293487084475005,
+        1.7636465584306666,
+        6.720754167903879,
+        1.8831656537350832,
+        8.212159627360256,
+        2.0026847490394997
+      ],
+      "finite_difference_note": "Central differences are applied to the original objective and the explicit sampled constraint functions. Results were stable for steps from 1e-4 through 1e-7 on Scenario 0. The exact projection-based feasibility checker is reported separately."
+    },
+    "Heavy-Ball": {
+      "formulation": {
+        "constraint_convention": "g(z) <= 0",
+        "lagrangian": "L(z, lambda) = f(z) + sum(lambda_j * g_j(z))",
+        "objective": "f(z) = combined_objective(z, w_time, w_energy, w_smooth)",
+        "decision_variables": "interior waypoint coordinates z",
+        "constraint_groups": [
+          "battery",
+          "time",
+          "waypoint NFZ constraints",
+          "sampled interior-segment NFZ constraints",
+          "workspace bounds"
+        ],
+        "segment_constraint_note": "The formal KKT system uses the five interior samples per segment returned by Constraints.segment_nfz_constraint. FeasibilityChecker additionally uses the exact projection of each obstacle center onto every full segment; that exact continuous segment condition is reported separately and is not silently substituted into the formal KKT vector."
+      },
+      "settings": {
+        "w_time": 0.5,
+        "w_energy": 0.5,
+        "w_smooth": 0.0,
+        "active_tolerance": 0.001,
+        "feasibility_tolerance": 1e-06,
+        "finite_difference_step": 1e-06
+      },
+      "objective_value": 0.4411064088743192,
+      "objective_gradient_norm": 0.024952152959684965,
+      "active_constraint_count": 0,
+      "active_constraints": [],
+      "constraints": [
+        {
+          "name": "battery",
+          "value": -51.24426100887391,
+          "slack": 51.24426100887391,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "time",
+          "value": -0.93000857402216,
+          "slack": 0.93000857402216,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_1_obstacle_1",
+          "value": -2.820273347283065,
+          "slack": 2.820273347283065,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_1_obstacle_2",
+          "value": -43.750828126616184,
+          "slack": 43.750828126616184,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_2_obstacle_1",
+          "value": -0.4039284931599125,
+          "slack": 0.4039284931599125,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_2_obstacle_2",
+          "value": -29.096626138897665,
+          "slack": 29.096626138897665,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_3_obstacle_1",
+          "value": -1.9429574692253544,
+          "slack": 1.9429574692253544,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_3_obstacle_2",
+          "value": -16.897616996124675,
+          "slack": 16.897616996124675,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_4_obstacle_1",
+          "value": -8.378790871329745,
+          "slack": 8.378790871329745,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_4_obstacle_2",
+          "value": -4.584130130657655,
+          "slack": 4.584130130657655,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_5_obstacle_1",
+          "value": -17.084877594741933,
+          "slack": 17.084877594741933,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "waypoint_5_obstacle_2",
+          "value": -0.9134508611644181,
+          "slack": 0.9134508611644181,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_1_obstacle_1",
+          "value": -6.954436965632795,
+          "slack": 6.954436965632795,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_1_obstacle_2",
+          "value": -54.49092438258789,
+          "slack": 54.49092438258789,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_2_obstacle_1",
+          "value": -5.960662729324802,
+          "slack": 5.960662729324802,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_2_obstacle_2",
+          "value": -52.1759636187555,
+          "slack": 52.1759636187555,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_3_obstacle_1",
+          "value": -5.050359249335827,
+          "slack": 5.050359249335827,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_3_obstacle_2",
+          "value": -49.94447361124213,
+          "slack": 49.94447361124213,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_4_obstacle_1",
+          "value": -4.223526525665883,
+          "slack": 4.223526525665883,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_4_obstacle_2",
+          "value": -47.79645436004779,
+          "slack": 47.79645436004779,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_5_obstacle_1",
+          "value": -3.4801645583149616,
+          "slack": 3.4801645583149616,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_5_obstacle_2",
+          "value": -45.73190586517248,
+          "slack": 45.73190586517248,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_6_obstacle_1",
+          "value": -1.9547222627448955,
+          "slack": 1.9547222627448955,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_6_obstacle_2",
+          "value": -40.84563418647879,
+          "slack": 40.84563418647879,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_7_obstacle_1",
+          "value": -1.2743019550804497,
+          "slack": 1.2743019550804497,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_7_obstacle_2",
+          "value": -38.1255710232151,
+          "slack": 38.1255710232151,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_8_obstacle_1",
+          "value": -0.7790124242897298,
+          "slack": 0.7790124242897298,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_8_obstacle_2",
+          "value": -35.59063863682516,
+          "slack": 35.59063863682516,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_9_obstacle_1",
+          "value": -0.4688536703727335,
+          "slack": 0.4688536703727335,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_9_obstacle_2",
+          "value": -33.24083702730894,
+          "slack": 33.24083702730894,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_10_obstacle_1",
+          "value": -0.3438256933294608,
+          "slack": 0.3438256933294608,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_10_obstacle_2",
+          "value": -31.076166194666445,
+          "slack": 31.076166194666445,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_11_obstacle_1",
+          "value": -0.29474205427954336,
+          "slack": 0.29474205427954336,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_11_obstacle_2",
+          "value": -26.697766680210893,
+          "slack": 26.697766680210893,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_12_obstacle_1",
+          "value": -0.33183212268901796,
+          "slack": 0.33183212268901796,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_12_obstacle_2",
+          "value": -24.445183728813966,
+          "slack": 24.445183728813966,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_13_obstacle_1",
+          "value": -0.5151986983883368,
+          "slack": 0.5151986983883368,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_13_obstacle_2",
+          "value": -22.33887728470688,
+          "slack": 22.33887728470688,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_14_obstacle_1",
+          "value": -0.8448417813774989,
+          "slack": 0.8448417813774989,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_14_obstacle_2",
+          "value": -20.37884734788963,
+          "slack": 20.37884734788963,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_15_obstacle_1",
+          "value": -1.3207613716565034,
+          "slack": 1.3207613716565034,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_15_obstacle_2",
+          "value": -18.565093918362233,
+          "slack": 18.565093918362233,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_16_obstacle_1",
+          "value": -2.4319162004205817,
+          "slack": 2.4319162004205817,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_16_obstacle_2",
+          "value": -14.261689016058,
+          "slack": 14.261689016058,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_17_obstacle_1",
+          "value": -3.154346999278011,
+          "slack": 3.154346999278011,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_17_obstacle_2",
+          "value": -11.859233103653528,
+          "slack": 11.859233103653528,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_18_obstacle_1",
+          "value": -4.110249865797643,
+          "slack": 4.110249865797643,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_18_obstacle_2",
+          "value": -9.690249258911257,
+          "slack": 9.690249258911257,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_19_obstacle_1",
+          "value": -5.299624799979475,
+          "slack": 5.299624799979475,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_19_obstacle_2",
+          "value": -7.754737481831189,
+          "slack": 7.754737481831189,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_20_obstacle_1",
+          "value": -6.722471801823509,
+          "slack": 6.722471801823509,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_20_obstacle_2",
+          "value": -6.052697772413321,
+          "slack": 6.052697772413321,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_21_obstacle_1",
+          "value": -9.574983387914699,
+          "slack": 9.574983387914699,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_21_obstacle_2",
+          "value": -3.717528315091699,
+          "slack": 3.717528315091699,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_22_obstacle_1",
+          "value": -10.87310467942648,
+          "slack": 10.87310467942648,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_22_obstacle_2",
+          "value": -2.9528552744525802,
+          "slack": 2.9528552744525802,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_23_obstacle_1",
+          "value": -12.273154745865089,
+          "slack": 12.273154745865089,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_23_obstacle_2",
+          "value": -2.2901110087402925,
+          "slack": 2.2901110087402925,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_24_obstacle_1",
+          "value": -13.775133587230542,
+          "slack": 13.775133587230542,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_24_obstacle_2",
+          "value": -1.7292955179548342,
+          "slack": 1.7292955179548342,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_25_obstacle_1",
+          "value": -15.379041203522824,
+          "slack": 15.379041203522824,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_25_obstacle_2",
+          "value": -1.2704088020962097,
+          "slack": 1.2704088020962097,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_26_obstacle_1",
+          "value": -19.09315305784813,
+          "slack": 19.09315305784813,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_26_obstacle_2",
+          "value": -0.6394948859908158,
+          "slack": 0.6394948859908158,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_27_obstacle_1",
+          "value": -21.226169691130117,
+          "slack": 21.226169691130117,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_27_obstacle_2",
+          "value": -0.49028008099300235,
+          "slack": 0.49028008099300235,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_28_obstacle_1",
+          "value": -23.483927494587896,
+          "slack": 23.483927494587896,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_28_obstacle_2",
+          "value": -0.4658064461709781,
+          "slack": 0.4658064461709781,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_29_obstacle_1",
+          "value": -25.86642646822146,
+          "slack": 25.86642646822146,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_29_obstacle_2",
+          "value": -0.5660739815247435,
+          "slack": 0.5660739815247435,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_30_obstacle_1",
+          "value": -28.373666612030817,
+          "slack": 28.373666612030817,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "segment_sample_30_obstacle_2",
+          "value": -0.7910826870542982,
+          "slack": 0.7910826870542982,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_1",
+          "value": -1.8758443452454128,
+          "slack": 1.8758443452454128,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_1",
+          "value": -8.124155654754587,
+          "slack": 8.124155654754587,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_1",
+          "value": -0.9086235709803688,
+          "slack": 0.9086235709803688,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_1",
+          "value": -9.09137642901963,
+          "slack": 9.09137642901963,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_2",
+          "value": -3.5712980241559373,
+          "slack": 3.5712980241559373,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_2",
+          "value": -6.428701975844063,
+          "slack": 6.428701975844063,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_2",
+          "value": -0.23202117193363028,
+          "slack": 0.23202117193363028,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_2",
+          "value": -9.76797882806637,
+          "slack": 9.76797882806637,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_3",
+          "value": -5.193626268476689,
+          "slack": 5.193626268476689,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_3",
+          "value": -4.806373731523311,
+          "slack": 4.806373731523311,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_3",
+          "value": -0.19995563129676208,
+          "slack": 0.19995563129676208,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_3",
+          "value": -9.800044368703238,
+          "slack": 9.800044368703238,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_4",
+          "value": -7.0921183643691785,
+          "slack": 7.0921183643691785,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_4",
+          "value": -2.9078816356308215,
+          "slack": 2.9078816356308215,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_4",
+          "value": -0.9734056812375257,
+          "slack": 0.9734056812375257,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_4",
+          "value": -9.026594318762474,
+          "slack": 9.026594318762474,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_lower_waypoint_5",
+          "value": -8.331291266443632,
+          "slack": 8.331291266443632,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_x_upper_waypoint_5",
+          "value": -1.6687087335563682,
+          "slack": 1.6687087335563682,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_lower_waypoint_5",
+          "value": -1.520368630117392,
+          "slack": 1.520368630117392,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        },
+        {
+          "name": "workspace_y_upper_waypoint_5",
+          "value": -8.479631369882608,
+          "slack": 8.479631369882608,
+          "status": "inactive",
+          "multiplier": 0.0,
+          "complementary_slackness": -0.0
+        }
+      ],
+      "residuals": {
+        "primal_violation_max": 0.0,
+        "stationarity_norm": 0.024952152959684965,
+        "dual_violation_max": 0.0,
+        "complementary_slackness_max": 0.0
+      },
+      "checks": {
+        "primal_feasible": true,
+        "dual_feasible": true,
+        "stationary": false,
+        "complementary_slackness": true
+      },
+      "summary": {
+        "objective": 0.4411064088743192,
+        "feasible": true,
+        "max_constraint_violation": 0.0,
+        "active_constraints": [],
+        "multipliers": [],
+        "minimum_multiplier": 0.0,
+        "dual_feasibility": true,
+        "stationarity_residual": 0.024952152959684965,
+        "complementarity_residual": 0.0,
+        "primal_feasibility": true,
+        "kkt_satisfied": false,
+        "candidate": "Heavy-Ball",
+        "penalized_objective": 0.4411064088743192,
+        "optimizer_final_gradient_norm": 0.02500254426087678,
+        "formal_primal_feasible": true,
+        "exact_feasible": true,
+        "exact_feasibility_message": "Trajectory is fully feasible"
+      },
+      "kkt_satisfied": false,
+      "candidate": {
+        "optimizer": "Heavy-Ball",
+        "decision_vector": [
+          1.8758443452454128,
+          0.9086235709803688,
+          3.5712980241559373,
+          0.23202117193363028,
+          5.193626268476689,
+          0.19995563129676208,
+          7.0921183643691785,
+          0.9734056812375257,
+          8.331291266443632,
+          1.520368630117392
+        ],
+        "iterations": 3000,
+        "learning_rate": 0.01,
+        "momentum": 0.9,
+        "penalty_coefficient": 1000.0,
+        "maximum_iterations": 3000,
+        "optimizer_tolerance": 1e-08,
+        "stopping_reason": "maximum_iterations",
+        "last_objective_change": 6.389108506776875e-05,
+        "final_gradient_norm_penalized": 0.02500254426087678,
+        "objective": 0.4411064088743192,
+        "penalized_objective": 0.4411064088743192,
+        "minimum_buffered_clearance_m": 0.09295155257473753
+      },
+      "exact_feasibility": {
+        "feasible": true,
+        "message": "Trajectory is fully feasible"
+      },
+      "scenario_id": 0,
+      "waypoints": 5,
+      "initial_decision_vector": [
+        2.2465377895347443,
+        1.5246083678218334,
+        3.7379432489911224,
+        1.6441274631262501,
+        5.2293487084475005,
+        1.7636465584306666,
+        6.720754167903879,
+        1.8831656537350832,
+        8.212159627360256,
+        2.0026847490394997
+      ],
+      "finite_difference_note": "Central differences are applied to the original objective and the explicit sampled constraint functions. Results were stable for steps from 1e-4 through 1e-7 on Scenario 0. The exact projection-based feasibility checker is reported separately."
+    }
+  },
+  "kkt_summary_table": [
+    {
+      "objective": 0.4363565820131996,
+      "feasible": true,
+      "max_constraint_violation": 0.0,
+      "active_constraints": [],
+      "multipliers": [],
+      "minimum_multiplier": 0.0,
+      "dual_feasibility": true,
+      "stationarity_residual": 0.03228666548700258,
+      "complementarity_residual": 0.0,
+      "primal_feasibility": true,
+      "kkt_satisfied": false,
+      "candidate": "Gradient Descent",
+      "penalized_objective": 0.4363565820131996,
+      "optimizer_final_gradient_norm": 0.032298477094372245,
+      "formal_primal_feasible": true,
+      "exact_feasible": false,
+      "exact_feasibility_message": "Segment 2 violates 1.52 m clearance from obstacle [3.9400971161919447, 1.833089012809582]"
+    },
+    {
+      "objective": 0.4411064088743192,
+      "feasible": true,
+      "max_constraint_violation": 0.0,
+      "active_constraints": [],
+      "multipliers": [],
+      "minimum_multiplier": 0.0,
+      "dual_feasibility": true,
+      "stationarity_residual": 0.024952152959684965,
+      "complementarity_residual": 0.0,
+      "primal_feasibility": true,
+      "kkt_satisfied": false,
+      "candidate": "Heavy-Ball",
+      "penalized_objective": 0.4411064088743192,
+      "optimizer_final_gradient_norm": 0.02500254426087678,
+      "formal_primal_feasible": true,
+      "exact_feasible": true,
+      "exact_feasibility_message": "Trajectory is fully feasible"
+    }
+  ],
+  "stopping_diagnosis": {
+    "existing_default_tolerance": 1e-05,
+    "heavy_ball_default_run": "With the existing default tolerance, Heavy-Ball stopped at 306 iterations because objective change was below tolerance while its gradient norm remained above tolerance. The KKT runs use tol=1e-8 to prevent that premature exit."
+  }
+}

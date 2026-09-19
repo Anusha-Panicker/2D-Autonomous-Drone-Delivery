@@ -1,0 +1,1423 @@
+# RL-Based Drone Obstacle Avoidance with Gradient Descent vs Heavy-Ball
+
+## 1. Project overview
+
+### Main objective
+
+Build a simulation-based reinforcement-learning system in which a drone autonomously navigates from a start point to a target while avoiding static and, later, dynamic obstacles.
+
+The central experimental contribution is to compare:
+
+- Vanilla Gradient Descent (GD)
+- Heavy-Ball / momentum optimization
+
+under otherwise matched training conditions.
+
+A constrained extension can use:
+
+- Lagrangian formulation
+- Dual ascent
+- KKT conditions
+
+The project should **not** claim that KKT or GD gives a globally optimal solution. Neural-network policy optimization is generally non-convex.
+
+### Recommended overall pipeline
+
+```text
+Automated simulator
+        |
+        v
+Generate many flight episodes automatically
+        |
+        v
+RL environment: state -> action -> reward -> next state
+        |
+        v
+Train baseline policy (PPO/SAC)
+        |
+        v
+Define training objective
+        |
+   +----+----+
+   |         |
+   v         v
+  GD     Heavy-Ball
+   |         |
+   +----+----+
+        |
+        v
+Compare convergence / success / collisions / time
+        |
+        v
+Optional constrained RL + Lagrangian + KKT
+        |
+        v
+Evaluate on unseen environments
+```
+
+---
+
+# 2. Important clarification: dataset vs RL
+
+This project should **not be designed as a conventional supervised-learning dataset problem**.
+
+In RL, the simulator itself generates experience:
+
+```text
+state -> action -> reward -> next state
+```
+
+The agent interacts with the environment repeatedly.
+
+Therefore, there are two useful kinds of data:
+
+### A. Training experience
+
+Generated automatically during RL training. This is the main data used by PPO/SAC.
+
+### B. Optional exported dataset
+
+The simulator can automatically log every timestep to CSV/Parquet for:
+
+- debugging
+- reward analysis
+- visualization
+- reproducibility
+- offline analysis
+- possible supervised-learning experiments
+
+There is **no need for manual drone flying or manual data collection**.
+
+A Python automation script should generate episodes automatically by varying:
+
+- starting position
+- goal position
+- obstacle positions
+- obstacle sizes
+- obstacle velocities
+- environment seeds
+- optional wind/noise parameters
+
+Example:
+
+```text
+Episode 1 -> random start/goal/obstacles -> simulate -> log
+Episode 2 -> random start/goal/obstacles -> simulate -> log
+...
+Episode 1000 -> simulate -> log
+```
+
+---
+
+# 3. Recommended simulator: gym-pybullet-drones
+
+## Primary recommendation
+
+For this particular project, use:
+
+**gym-pybullet-drones + Gymnasium + Stable-Baselines3 + PyTorch**
+
+This is preferable to starting with AirSim/PX4 because the project is primarily an RL/optimization experiment, not initially a flight-controller/HITL project.
+
+The current `gym-pybullet-drones` repository is designed for single- and multi-agent quadcopter control, supports Gymnasium and Stable-Baselines3, and provides RL examples including PPO. It is MIT licensed. 
+
+Official repository:
+
+https://github.com/learnsyslab/gym-pybullet-drones
+
+The project also provides physics-based quadrotor dynamics and examples for PID, velocity control, and RL.
+
+## Why use it first?
+
+It gives us:
+
+- Python-native workflow
+- Gymnasium environment structure
+- PyBullet physics
+- continuous quadrotor control
+- easy integration with PyTorch
+- Stable-Baselines3
+- faster experimentation than a full Unreal/PX4 stack
+- ability to step physics programmatically
+- easier custom environment development
+
+The repository currently lists Python 3.12 and current Gymnasium/Stable-Baselines3 dependencies in its project configuration.
+
+---
+
+# 4. Alternative: AirSim + PX4
+
+AirSim is still a valid option and can be used later if realistic visual simulation or PX4 integration becomes important.
+
+AirSim supports Python APIs and PX4 Software-in-the-Loop (SITL).
+
+Official AirSim/PX4 information:
+
+https://github.com/Microsoft/AirSim/blob/main/docs/px4_setup.md
+
+However, AirSim/PX4 is a larger and more complicated stack.
+
+For the first successful version:
+
+```text
+gym-pybullet-drones
+        >
+AirSim/PX4
+```
+
+For a later realism/hardware-validation stage:
+
+```text
+gym-pybullet-drones
+        ->
+PX4 + Gazebo
+        ->
+real hardware
+```
+
+PX4 currently recommends Gazebo for new PX4 simulation workflows rather than Gazebo Classic. PX4 supports an X500 quadrotor and can run it in SITL using:
+
+```bash
+make px4_sitl gz_x500
+```
+
+Headless simulation is also supported and can be faster for large automated experiments.
+
+Official PX4 simulation documentation:
+
+https://docs.px4.io/main/en/simulation/
+
+Official Gazebo/PX4 documentation:
+
+https://docs.px4.io/main/en/sim_gazebo_gz/
+
+---
+
+# 5. Dataset strategy
+
+## Do we need a downloaded drone dataset?
+
+No.
+
+The primary training experience should be **synthetically generated by the simulator**.
+
+The program should automatically run the environment and collect experience.
+
+### Suggested logged fields
+
+At minimum:
+
+```text
+episode_id
+step
+time
+
+drone_x
+drone_y
+drone_z
+
+velocity_x
+velocity_y
+velocity_z
+
+roll
+pitch
+yaw
+
+goal_x
+goal_y
+goal_z
+
+goal_distance
+goal_heading
+
+obstacle_distance_1
+obstacle_distance_2
+...
+obstacle_distance_N
+
+battery_level
+
+action_1
+action_2
+action_3
+
+reward
+collision
+goal_reached
+done
+```
+
+The exact state/action representation should be fixed before large-scale generation.
+
+---
+
+# 6. State space
+
+## Recommended first version
+
+Avoid camera images initially.
+
+Use numerical state information because it makes the optimization experiment much easier to understand and reproduce.
+
+Example observation:
+
+```text
+[
+    x, y, z,
+    vx, vy, vz,
+    roll, pitch, yaw,
+    goal_dx, goal_dy, goal_dz,
+    goal_distance,
+    goal_heading,
+    lidar_1, lidar_2, ... lidar_N,
+    battery
+]
+```
+
+### Why not camera data initially?
+
+Camera-based perception introduces another major problem:
+
+```text
+image
+  ->
+computer vision
+  ->
+feature extraction
+  ->
+policy
+  ->
+control
+```
+
+That is unnecessary for the first version.
+
+The first objective is to study:
+
+**RL + obstacle avoidance + GD vs Heavy-Ball.**
+
+Camera-based perception can be a future extension.
+
+---
+
+# 7. Action space
+
+## Version 1 — recommended
+
+Use continuous velocity commands:
+
+```text
+[vx_command, vy_command, vz_command, yaw_rate_command]
+```
+
+This is easier than directly learning motor thrusts.
+
+The simulator/controller handles the lower-level dynamics.
+
+## Version 2 — stretch goal
+
+Use lower-level control:
+
+```text
+[thrust, roll, pitch, yaw]
+```
+
+or motor-level commands.
+
+Do this only after the first version works.
+
+---
+
+# 8. Environment design
+
+Start simple.
+
+## Stage A: 2D-style navigation
+
+Keep altitude approximately constant.
+
+```text
++--------------------------------+
+|                                |
+|        obstacle                |
+|          ███                   |
+|                                |
+|   DRONE                  GOAL  |
+|     🚁 ----------------->  ●   |
+|                                |
++--------------------------------+
+```
+
+State:
+
+```text
+x, y, vx, vy
+```
+
+Actions:
+
+```text
+vx_command, vy_command
+```
+
+This is ideal for verifying:
+
+- state representation
+- reward function
+- obstacle detection
+- objective function
+- GD
+- Heavy-Ball
+- KKT formulation
+
+## Stage B: 3D
+
+Then add:
+
+```text
+z
+vz
+pitch
+roll
+yaw
+```
+
+and 3D obstacles.
+
+---
+
+# 9. Obstacles
+
+## Static obstacles — first
+
+Generate automatically:
+
+- boxes
+- cylinders
+- walls
+- random obstacle fields
+
+Example:
+
+```text
+random_seed
+    |
+    +--> obstacle 1
+    +--> obstacle 2
+    +--> obstacle 3
+    +--> obstacle 4
+```
+
+## Dynamic obstacles — later
+
+Add moving objects with:
+
+```text
+position
+velocity
+direction
+```
+
+Do not begin with dynamic obstacles. They make the RL problem substantially harder.
+
+---
+
+# 10. Reward function
+
+A good initial reward is:
+
+```text
+Reward =
+    progress_toward_goal
+    - small_step_cost
+    - collision_penalty
+    + goal_bonus
+```
+
+More formally:
+
+```text
+r_t =
+    k1 * (d_previous - d_current)
+    - k2
+    - k3 * collision
+    + k4 * goal_reached
+```
+
+where:
+
+- `d_previous` = previous distance to goal
+- `d_current` = current distance to goal
+- `k1` = progress coefficient
+- `k2` = small time/efficiency cost
+- `k3` = large collision penalty
+- `k4` = goal reward
+
+Optional:
+
+```text
+- low_battery_penalty
+```
+
+Do not make the reward unnecessarily complicated in the first experiment.
+
+---
+
+# 11. Phase 1 — Problem setup
+
+## Step 1 — Define the task
+
+Point-to-point autonomous navigation with:
+
+- continuous control
+- static obstacles initially
+- dynamic obstacles later
+
+Goal:
+
+```text
+Start -> avoid obstacles -> reach target
+```
+
+## Step 2 — Define state
+
+Initial state should include:
+
+- position
+- velocity
+- orientation
+- goal-relative position
+- goal distance/heading
+- obstacle proximity
+- optional battery level
+
+## Step 3 — Define action
+
+Version 1:
+
+```text
+velocity commands
+```
+
+Version 2:
+
+```text
+thrust/attitude commands
+```
+
+## Step 4 — Define reward
+
+Use dense goal progress + small step cost + collision penalty + goal bonus.
+
+## Step 5 — Ground the simulation
+
+Collect published real-drone specifications where needed:
+
+- mass
+- maximum thrust
+- approximate drag
+- maximum velocity
+- battery capacity/discharge assumptions
+
+These are **simulation grounding parameters**, not the ML training dataset.
+
+---
+
+# 12. Phase 2 — Build the simulator
+
+## Step 6 — Install gym-pybullet-drones
+
+Use the official repository:
+
+https://github.com/learnsyslab/gym-pybullet-drones
+
+Basic setup from the current repository is approximately:
+
+```bash
+git clone https://github.com/learnsyslab/gym-pybullet-drones.git
+cd gym-pybullet-drones
+
+conda create -n drones python=3.12
+conda activate drones
+
+pip install -e .
+```
+
+Exact installation requirements should be checked against the repository at implementation time.
+
+## Step 7 — Run an existing example
+
+Before modifying anything:
+
+```bash
+cd gym_pybullet_drones/examples/
+python3 pid.py
+```
+
+Then inspect the velocity-control example.
+
+The repository also includes PPO examples.
+
+## Step 8 — Create a custom environment
+
+Create something conceptually like:
+
+```text
+DroneObstacleEnv
+    |
+    +-- reset()
+    +-- step(action)
+    +-- observation
+    +-- reward
+    +-- termination
+    +-- obstacle generation
+    +-- goal generation
+```
+
+---
+
+# 13. Automated dataset/experience generation
+
+This is important:
+
+**Do not manually fly the drone.**
+
+Write an episode generator.
+
+Conceptually:
+
+```python
+for episode in range(NUM_EPISODES):
+
+    env.reset()
+
+    randomize_start()
+    randomize_goal()
+    randomize_obstacles()
+
+    while not done:
+
+        action = automatic_controller_or_policy()
+
+        next_state, reward, done, info = env.step(action)
+
+        save(
+            state,
+            action,
+            reward,
+            next_state,
+            info
+        )
+```
+
+The first controller can be a simple baseline/controller.
+
+Later, PPO/SAC generates its own experience.
+
+---
+
+# 14. What the generated dataset looks like
+
+Example:
+
+| episode | step | x | y | z | vx | vy | goal_dx | goal_dy | obstacle_dist | action_vx | action_vy | reward | collision |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 0 | 0.0 | 0.0 | 1.0 | 0 | 0 | 10 | 5 | 4.2 | 1.0 | 0.5 | 0.4 | 0 |
+| 1 | 1 | 0.1 | 0.05 | 1.0 | 1 | 0.5 | 9.9 | 4.95 | 4.1 | 1.0 | 0.5 | 0.4 | 0 |
+| 1 | 2 | 0.2 | 0.1 | 1.0 | 1 | 0.5 | 9.8 | 4.9 | 4.0 | 1.0 | 0.5 | 0.4 | 0 |
+
+This is **automatically generated**.
+
+---
+
+# 15. Phase 3 — RL baseline
+
+Do not immediately replace everything with GD/Heavy-Ball.
+
+First prove that the environment is learnable.
+
+## Step 9 — Train PPO or SAC
+
+Start with:
+
+**PPO**
+
+because it is a common, well-supported baseline and the current gym-pybullet-drones repository provides a PPO example.
+
+Then optionally test SAC because the action space is continuous.
+
+## Step 10 — Confirm learning
+
+The first success criterion is simply:
+
+> Does the agent learn to reach the goal while avoiding obstacles?
+
+Track:
+
+- episode reward
+- success rate
+- collision rate
+- average episode length
+- goal distance
+- training time
+
+If PPO cannot learn the task, do not start the GD vs Heavy-Ball comparison yet.
+
+Fix the environment/reward/state representation first.
+
+---
+
+# 16. Phase 4 — Core contribution: GD vs Heavy-Ball
+
+This is the main research experiment.
+
+## Step 11 — Formalize the training objective
+
+Let policy parameters be:
+
+```text
+θ
+```
+
+and define an objective such as:
+
+```text
+J(θ) = - expected episode return
+```
+
+Training seeks to minimize `J(θ)`.
+
+Important:
+
+**J(θ) is generally non-convex because the policy is a neural network and RL introduces additional non-convexity/estimation issues.**
+
+Therefore, do not claim:
+
+> "GD finds the global optimum."
+
+Instead say:
+
+> "We empirically compare optimization behavior and convergence characteristics."
+
+---
+
+# 17. Gradient Descent
+
+Conceptually:
+
+```text
+θ_(t+1) = θ_t - α ∇J(θ_t)
+```
+
+where:
+
+- `θ` = policy parameters
+- `α` = learning rate
+- `∇J` = gradient
+
+Record:
+
+- reward vs training step
+- success rate
+- collision rate
+- loss/objective
+- wall-clock time
+
+---
+
+# 18. Heavy-Ball / momentum
+
+The Heavy-Ball update can be written as:
+
+```text
+θ_(t+1)
+=
+θ_t
+-
+α ∇J(θ_t)
++
+β(θ_t - θ_(t-1))
+```
+
+where:
+
+- `α` = learning rate
+- `β` = momentum coefficient
+
+The important experimental rule is:
+
+**Keep everything else as identical as possible.**
+
+For example:
+
+```text
+same environment
+same network architecture
+same reward
+same number of training steps
+same batch size
+same seeds
+same data collection settings
+same evaluation environments
+```
+
+Change only the optimizer/update rule being studied.
+
+---
+
+# 19. Very important RL detail
+
+Standard PPO/SAC implementations use optimizer machinery such as Adam.
+
+Therefore, if your research question is specifically:
+
+> "GD vs Heavy-Ball"
+
+you need to clearly define what you are replacing.
+
+A clean approach is:
+
+```text
+RL algorithm:
+PPO
+
+Policy:
+same neural network
+
+Optimizer:
+Version A -> vanilla SGD/GD
+Version B -> Heavy-Ball
+```
+
+But this requires modifying the training implementation rather than simply changing a single configuration field.
+
+Also distinguish:
+
+- policy-gradient learning
+- minibatch stochastic gradients
+- true full-batch gradient descent
+
+In practical RL, you will normally be doing **stochastic/minibatch gradient updates**, so describe the experiment accurately.
+
+---
+
+# 20. Phase 5 — Comparison
+
+Run multiple seeds.
+
+Do not compare only one training curve.
+
+Recommended metrics:
+
+### 1. Convergence speed
+
+How many environment steps are needed to reach a chosen performance threshold?
+
+### 2. Final success rate
+
+```text
+successful episodes / total episodes
+```
+
+### 3. Collision rate
+
+```text
+collision episodes / total episodes
+```
+
+### 4. Final reward
+
+Average evaluation return.
+
+### 5. Variance
+
+Run multiple random seeds.
+
+For example:
+
+```text
+Seed 1
+Seed 2
+Seed 3
+Seed 4
+Seed 5
+```
+
+Report:
+
+```text
+mean ± standard deviation
+```
+
+### 6. Wall-clock training time
+
+Measure actual training time.
+
+---
+
+# 21. Phase 6 — Optional constrained formulation
+
+This is where KKT becomes more meaningful.
+
+Instead of only penalizing collisions in the reward:
+
+```text
+collision penalty
+```
+
+formulate a constraint such as:
+
+```text
+Expected collision cost <= ε
+```
+
+or:
+
+```text
+C(θ) <= ε
+```
+
+where `C(θ)` is expected collision cost.
+
+The problem becomes approximately:
+
+```text
+minimize       J(θ)
+
+subject to     C(θ) <= ε
+```
+
+---
+
+# 22. Lagrangian
+
+Define:
+
+```text
+L(θ, λ)
+=
+J(θ) + λ(C(θ) - ε)
+```
+
+with:
+
+```text
+λ >= 0
+```
+
+Then alternate:
+
+### Policy update
+
+Use GD or Heavy-Ball on the policy parameters.
+
+### Dual update
+
+Use dual ascent on `λ`.
+
+Conceptually:
+
+```text
+θ update:
+minimize L(θ, λ)
+
+λ update:
+maximize L(θ, λ)
+```
+
+This gives the optimization theory a real purpose rather than simply adding KKT as a decorative mathematical section.
+
+---
+
+# 23. KKT conditions
+
+For a constrained optimization problem:
+
+```text
+minimize J(θ)
+
+subject to C(θ) <= ε
+```
+
+the KKT conditions include:
+
+### Primal feasibility
+
+```text
+C(θ*) <= ε
+```
+
+### Dual feasibility
+
+```text
+λ* >= 0
+```
+
+### Complementary slackness
+
+```text
+λ*[C(θ*) - ε] = 0
+```
+
+### Stationarity
+
+```text
+∇θ J(θ*) + λ* ∇θ C(θ*) = 0
+```
+
+Important:
+
+KKT conditions characterize constrained optima under appropriate regularity assumptions. In this neural RL setting, because the problem is generally non-convex, do not present KKT as proof of global optimality.
+
+---
+
+# 24. Phase 7 — Physical feasibility
+
+After training, check that the learned policy does not request impossible behavior.
+
+Check:
+
+- maximum velocity
+- acceleration
+- turn rate
+- altitude limits
+- thrust limits
+- battery limits
+- obstacle clearance
+
+For example:
+
+```text
+|velocity| <= vmax
+```
+
+and:
+
+```text
+altitude_min <= z <= altitude_max
+```
+
+If the policy violates a physical limit, clip the action or redesign the action space/controller.
+
+---
+
+# 25. Generalization testing
+
+Do not evaluate only on the same environments used during training.
+
+Create held-out scenarios:
+
+```text
+Training environments
+    |
+    +-- obstacle layouts A
+    +-- obstacle layouts B
+    +-- obstacle layouts C
+
+Test environments
+    |
+    +-- unseen layout D
+    +-- unseen layout E
+    +-- unseen layout F
+```
+
+Also vary:
+
+- obstacle positions
+- obstacle density
+- goal positions
+- starting positions
+- optional dynamics/noise
+
+This measures whether the learned policy actually generalizes.
+
+---
+
+# 26. Dynamic obstacles
+
+After static obstacle avoidance works:
+
+```text
+static obstacles
+       ↓
+moving obstacles
+```
+
+For dynamic obstacles, add information such as:
+
+```text
+relative obstacle position
+relative obstacle velocity
+```
+
+to the observation.
+
+Do not make dynamic obstacles part of the first successful experiment.
+
+---
+
+# 27. Real drone datasets — optional, not the primary training source
+
+You can use real-world datasets for validation, context, or state-estimation experiments.
+
+## UZH-FPV Drone Racing Dataset
+
+Official:
+
+https://fpv.ifi.uzh.ch/
+
+It contains aggressive 6-DoF FPV drone trajectories, camera and IMU data, ground truth, event-camera data, and other sensor information. It includes racing-gate and obstacle trajectories. It is released under CC BY-NC-SA 3.0 for non-commercial use/research.
+
+However:
+
+**Do not make this dataset the main training dataset for the proposed RL system.**
+
+Your main RL experience should come from your simulator.
+
+The UZH-FPV dataset is better treated as:
+
+```text
+real-world reference / validation / future extension
+```
+
+---
+
+# 28. Optional real-world grounding data
+
+Use published drone specifications to make the simulator more realistic:
+
+```text
+mass
+maximum thrust
+motor/propeller characteristics
+drag
+battery capacity
+maximum speed
+maximum acceleration
+```
+
+These are **parameters**, not necessarily ML labels.
+
+---
+
+# 29. Automated experiment manager
+
+Eventually create one script that can launch the entire experiment.
+
+Conceptually:
+
+```text
+run_experiment.py
+
+    |
+    +-- create environment
+    |
+    +-- generate/randomize scenarios
+    |
+    +-- train baseline
+    |
+    +-- train GD
+    |
+    +-- train Heavy-Ball
+    |
+    +-- evaluate all models
+    |
+    +-- save metrics
+    |
+    +-- generate plots
+    |
+    +-- save models
+```
+
+Suggested output:
+
+```text
+results/
+    gd/
+        seed_1/
+        seed_2/
+        seed_3/
+
+    heavy_ball/
+        seed_1/
+        seed_2/
+        seed_3/
+
+    evaluation/
+        results.csv
+        reward_curve.png
+        success_rate.png
+        collision_rate.png
+```
+
+---
+
+# 30. Recommended project directory
+
+```text
+drone_rl_optimization/
+│
+├── environment/
+│   ├── drone_env.py
+│   ├── obstacles.py
+│   ├── rewards.py
+│   └── scenarios.py
+│
+├── simulation/
+│   ├── config.py
+│   └── simulator.py
+│
+├── data/
+│   ├── generated/
+│   └── processed/
+│
+├── agents/
+│   ├── ppo_baseline.py
+│   ├── gd_agent.py
+│   └── heavy_ball_agent.py
+│
+├── optimization/
+│   ├── gradient_descent.py
+│   ├── heavy_ball.py
+│   ├── lagrangian.py
+│   └── kkt_analysis.py
+│
+├── training/
+│   ├── train_ppo.py
+│   ├── train_gd.py
+│   └── train_heavy_ball.py
+│
+├── evaluation/
+│   ├── evaluate.py
+│   ├── metrics.py
+│   └── plots.py
+│
+├── experiments/
+│   ├── configs/
+│   └── run_experiments.py
+│
+├── models/
+│
+├── results/
+│
+└── README.md
+```
+
+---
+
+# 31. What should NOT be done
+
+Avoid these mistakes:
+
+### ❌ Do not manually fly hundreds of episodes
+
+The simulator should automate this.
+
+### ❌ Do not generate a huge dataset before defining the observation/action space
+
+Otherwise you may collect irrelevant variables.
+
+### ❌ Do not start with camera-based deep learning
+
+Start with numerical observations.
+
+### ❌ Do not start with dynamic obstacles
+
+Start with static obstacles.
+
+### ❌ Do not compare GD and Heavy-Ball after changing several other things
+
+The optimizer should be the primary experimental difference.
+
+### ❌ Do not claim global optimality
+
+The policy optimization problem is generally non-convex.
+
+### ❌ Do not use KKT only because it was requested in the syllabus
+
+Use it in the constrained extension where it has a real mathematical role.
+
+### ❌ Do not jump to real-drone testing
+
+First:
+
+```text
+simulation
+   ↓
+unseen simulation scenarios
+   ↓
+PX4/Gazebo or SITL
+   ↓
+hardware validation
+```
+
+---
+
+# 32. Recommended final project scope
+
+For a manageable college project, the **core version** should be:
+
+```text
+             CORE PROJECT
+
+gym-pybullet-drones
+        ↓
+custom obstacle environment
+        ↓
+automatically randomized episodes
+        ↓
+numerical state observations
+        ↓
+continuous velocity actions
+        ↓
+PPO baseline
+        ↓
+GD vs Heavy-Ball
+        ↓
+multiple seeds
+        ↓
+success/collision/reward/time comparison
+```
+
+Then add:
+
+```text
+OPTIONAL EXTENSION
+
+collision constraint
+        ↓
+Lagrangian
+        ↓
+dual ascent
+        ↓
+KKT analysis
+```
+
+Then:
+
+```text
+STRETCH GOAL
+
+3D / dynamic obstacles
+        ↓
+PX4 + Gazebo
+        ↓
+more realistic validation
+```
+
+---
+
+# 33. Final recommended architecture
+
+```text
+                         PROJECT
+                            |
+             +--------------+--------------+
+             |                             |
+       RL / AI system              Optimization study
+             |                             |
+             v                             v
+      Drone simulator               Training objective
+             |                             |
+             v                   +---------+---------+
+      Random scenarios            |                   |
+             |                    v                   v
+             v                   GD              Heavy-Ball
+       State observation           |                   |
+             |                    +---------+---------+
+             v                              |
+          PPO/SAC                            v
+             |                         Comparison
+             v                              |
+      Learned policy                        v
+             |                     convergence speed
+             |                     reward
+             |                     success rate
+             |                     collision rate
+             |                     variance
+             |                     wall-clock time
+             |
+             v
+      Optional constraint
+             |
+             v
+       Lagrangian + KKT
+             |
+             v
+       Feasibility analysis
+             |
+             v
+      Unseen environments
+```
+
+---
+
+# 34. The most important implementation order
+
+Do **not** attempt all 21 items simultaneously.
+
+Build in this order:
+
+### Milestone 1
+Install `gym-pybullet-drones`.
+
+### Milestone 2
+Run the existing drone example.
+
+### Milestone 3
+Create a simple custom navigation environment.
+
+### Milestone 4
+Add one static obstacle.
+
+### Milestone 5
+Make the environment automatically randomize start/goal/obstacle positions.
+
+### Milestone 6
+Make the environment automatically run many episodes and log CSV data.
+
+### Milestone 7
+Verify the reward and collision logic with a random/simple controller.
+
+### Milestone 8
+Train PPO.
+
+### Milestone 9
+Confirm that PPO actually learns.
+
+### Milestone 10
+Implement the GD training variant.
+
+### Milestone 11
+Implement Heavy-Ball.
+
+### Milestone 12
+Run controlled multi-seed experiments.
+
+### Milestone 13
+Compare results.
+
+### Milestone 14
+Add Lagrangian/KKT only if the core experiment is stable.
+
+### Milestone 15
+Move toward PX4/Gazebo if the project needs a more realistic flight stack.
+
+---
+
+# 35. Bottom line
+
+Your original project structure is **good**, but I would make three important changes:
+
+1. **Make the simulator-generated RL experience the primary "dataset".**
+   You do not need to manually fly the drone or download a massive dataset.
+
+2. **Use gym-pybullet-drones as the first simulator**, because it gives you a much cleaner Python/Gymnasium/RL workflow. AirSim + PX4/Gazebo can be a later realism/validation stage.
+
+3. **Treat GD vs Heavy-Ball as the central experimental contribution**, with PPO/SAC as the RL framework and KKT/Lagrangian as an optional constrained extension.
+
+This gives you a project that is technically coherent rather than trying to combine unrelated pieces:
+
+**simulation → automated experience generation → RL → optimization → GD vs Heavy-Ball → evaluation → optional constrained KKT → realistic validation.**
+
